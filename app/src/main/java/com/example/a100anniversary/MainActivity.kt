@@ -3,6 +3,7 @@ package com.example.a100anniversary
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
@@ -51,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             toggleVisibility(answer3, R.anim.slide_left)
             toggleVisibility(textView7, R.anim.slide_up)
             toggleVisibility(appbar, R.anim.slide_down)
-            toggleVisibility(float, R.anim.slide_down, EmployeeFirstActivity::class.java)
+            toggleVisibility(float, R.anim.slide_down, EmployeeFirstActivity::class.java, 350) // 2000 milisaniye (2 saniye) beklet
         }
 
         answer2.setOnClickListener {
@@ -59,7 +60,7 @@ class MainActivity : AppCompatActivity() {
             toggleVisibility(answer3, R.anim.slide_left)
             toggleVisibility(textView7, R.anim.slide_up)
             toggleVisibility(appbar, R.anim.slide_down)
-            toggleVisibility(float, R.anim.slide_down, EmployerFirstActivity::class.java)
+            toggleVisibility(float, R.anim.slide_down, EmployerFirstActivity::class.java, 350) // 2000 milisaniye (2 saniye) beklet
         }
 
         answer3.setOnClickListener {
@@ -67,24 +68,26 @@ class MainActivity : AppCompatActivity() {
             toggleVisibility(answer2, R.anim.slide_left)
             toggleVisibility(textView7, R.anim.slide_up)
             toggleVisibility(appbar, R.anim.slide_down)
-            toggleVisibility(float, R.anim.slide_down, EmployeeFirstActivity::class.java)
+            toggleVisibility(float, R.anim.slide_down, EmployeeFirstActivity::class.java, 350) // 2000 milisaniye (2 saniye) beklet
         }
     }
 
-    private fun toggleVisibility(view: View, animationId: Int, targetClass: Class<*>) {
+    private fun toggleVisibility(view: View, animationId: Int, targetClass: Class<*>, delay: Long) {
         val isViewVisible = view.visibility == View.VISIBLE
         val animation = AnimationUtils.loadAnimation(mContext, animationId)
 
-        animation.setAnimationListener(object : android.view.animation.Animation.AnimationListener {
-            override fun onAnimationStart(animation: android.view.animation.Animation?) {}
+        animation.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationStart(animation: Animation?) {}
 
-            override fun onAnimationEnd(animation: android.view.animation.Animation?) {
+            override fun onAnimationEnd(animation: Animation?) {
                 view.visibility = if (isViewVisible) View.GONE else View.VISIBLE
-                val intent = Intent(mContext, targetClass)
-                mContext.startActivity(intent)
+                Handler().postDelayed({
+                    val intent = Intent(mContext, targetClass)
+                    mContext.startActivity(intent)
+                }, delay)
             }
 
-            override fun onAnimationRepeat(animation: android.view.animation.Animation?) {}
+            override fun onAnimationRepeat(animation: Animation?) {}
         })
 
         view.startAnimation(animation)
@@ -94,14 +97,16 @@ class MainActivity : AppCompatActivity() {
         val isViewVisible = view.visibility == View.VISIBLE
         val animation = AnimationUtils.loadAnimation(mContext, animationId)
 
-        animation.setAnimationListener(object : android.view.animation.Animation.AnimationListener {
-            override fun onAnimationStart(animation: android.view.animation.Animation?) {}
+        animation.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationStart(animation: Animation?) {}
 
-            override fun onAnimationEnd(animation: android.view.animation.Animation?) {
-                view.visibility = if (isViewVisible) View.GONE else View.VISIBLE
+            override fun onAnimationEnd(animation: Animation?) {
+
+                    view.visibility = if (isViewVisible) View.GONE else View.VISIBLE
+
             }
 
-            override fun onAnimationRepeat(animation: android.view.animation.Animation?) {}
+            override fun onAnimationRepeat(animation: Animation?) {}
         })
 
         view.startAnimation(animation)
