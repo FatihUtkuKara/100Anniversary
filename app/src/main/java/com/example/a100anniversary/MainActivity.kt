@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             toggleVisibility(answer3, R.anim.slide_left)
             toggleVisibility(textView7, R.anim.slide_up)
             toggleVisibility(appbar, R.anim.slide_down)
-            toggleVisibility(float, R.anim.slide_down, EmployeeFirstActivity::class.java, 350) // 2000 milisaniye (2 saniye) beklet
+            toggleVisibility(float, R.anim.slide_down, EmployeeFirstActivity::class.java, 550,answer1)
         }
 
         answer2.setOnClickListener {
@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
             toggleVisibility(answer3, R.anim.slide_left)
             toggleVisibility(textView7, R.anim.slide_up)
             toggleVisibility(appbar, R.anim.slide_down)
-            toggleVisibility(float, R.anim.slide_down, EmployerFirstActivity::class.java, 350) // 2000 milisaniye (2 saniye) beklet
+            toggleVisibility(float, R.anim.slide_down, EmployerFirstActivity::class.java, 550,answer2)
         }
 
         answer3.setOnClickListener {
@@ -68,19 +68,22 @@ class MainActivity : AppCompatActivity() {
             toggleVisibility(answer2, R.anim.slide_left)
             toggleVisibility(textView7, R.anim.slide_up)
             toggleVisibility(appbar, R.anim.slide_down)
-            toggleVisibility(float, R.anim.slide_down, EmployeeFirstActivity::class.java, 350) // 2000 milisaniye (2 saniye) beklet
+            toggleVisibility(float, R.anim.slide_down, EmployeeFirstActivity::class.java, 550,answer3)
         }
     }
 
-    private fun toggleVisibility(view: View, animationId: Int, targetClass: Class<*>, delay: Long) {
+    private fun toggleVisibility(view: View, animationId: Int, targetClass: Class<*>, delay: Long, button :TextView) {
         val isViewVisible = view.visibility == View.VISIBLE
         val animation = AnimationUtils.loadAnimation(mContext, animationId)
 
         animation.setAnimationListener(object : Animation.AnimationListener {
-            override fun onAnimationStart(animation: Animation?) {}
+            override fun onAnimationStart(animation: Animation?) {
+                startHeartbeatAnimation(button)
+            }
 
             override fun onAnimationEnd(animation: Animation?) {
                 view.visibility = if (isViewVisible) View.GONE else View.VISIBLE
+
                 Handler().postDelayed({
                     val intent = Intent(mContext, targetClass)
                     mContext.startActivity(intent)
@@ -114,5 +117,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun initialize() {
         initializeContext(this)
+    }
+
+    private fun startHeartbeatAnimation(view: View) {
+        val heartbeatAnimation = HeartbeatAnimation(view)
+        heartbeatAnimation.duration = 1500
+        view.startAnimation(heartbeatAnimation)
     }
 }

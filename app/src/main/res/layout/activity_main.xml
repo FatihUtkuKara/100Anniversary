@@ -143,9 +143,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_margin="5dp"
+                    android:layout_margin="15dp"
                     android:layout_weight="0.2"
-
+                    app:srcCompat="@drawable/btn_1"
                     app:tint="@color/white" />
 
                 <ImageView
@@ -153,9 +153,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_margin="5dp"
+                    android:layout_margin="15dp"
                     android:layout_weight="0.2"
-
+                    app:srcCompat="@drawable/btn_2"
                     app:tint="@color/white" />
 
                 <ImageView
@@ -173,9 +173,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_margin="5dp"
+                    android:layout_margin="15dp"
                     android:layout_weight="0.2"
-
+                    app:srcCompat="@drawable/btn_4"
                     app:tint="@color/white" />
 
                 <ImageView
@@ -183,9 +183,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_margin="5dp"
+                    android:layout_margin="15dp"
                     android:layout_weight="0.2"
-
+                    app:srcCompat="@drawable/btn_3"
                     app:tint="@color/white" />
             </LinearLayout>
 
