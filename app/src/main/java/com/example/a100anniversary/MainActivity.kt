@@ -10,6 +10,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.Transformation
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -46,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         val answer1 = findViewById<TextView>(R.id.answer1)
         val answer2 = findViewById<TextView>(R.id.answer2)
         val answer3 = findViewById<TextView>(R.id.answer3)
+        val statistics =findViewById<ImageView>(R.id.statistics)
 
         answer1.setOnClickListener {
             toggleVisibility(answer2, R.anim.slide_right)
@@ -69,6 +71,11 @@ class MainActivity : AppCompatActivity() {
             toggleVisibility(textView7, R.anim.slide_up)
             toggleVisibility(appbar, R.anim.slide_down)
             toggleVisibility(float, R.anim.slide_down, EmployeeFirstActivity::class.java, 550,answer3)
+        }
+
+        statistics.setOnClickListener {
+            val intent = Intent(mContext, StatisticsActivity::class.java)
+            mContext.startActivity(intent)
         }
     }
 

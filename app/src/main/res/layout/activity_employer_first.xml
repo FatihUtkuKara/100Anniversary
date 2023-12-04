@@ -149,7 +149,7 @@
             app:tint="@color/white" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/statistics"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
