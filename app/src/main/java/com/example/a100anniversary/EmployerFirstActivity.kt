@@ -9,6 +9,10 @@ class EmployerFirstActivity : AppCompatActivity() {
         setContentView(R.layout.activity_employer_first)
         overridePendingTransition(R.anim.slide_in_up, R.anim.no_animation)
 
+        // blue collar body type sadece hatchback ve van filtrelenmiş şekilde çıkıyor
+        //white body type hatchback ve sedan
+        //executive sedan ve limo
+
     }
 
 

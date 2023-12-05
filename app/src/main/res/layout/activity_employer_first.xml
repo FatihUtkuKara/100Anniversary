@@ -31,10 +31,10 @@
 
         <TextView
             android:id="@+id/textView7"
-            android:layout_marginTop="100dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Question 1 Question 1Question 1Question 1Question 1Question 1Question 1Question 1Question 1Question 1"
+            android:layout_marginTop="100dp"
+            android:text="What is your employees working class to purchase car fleet?(Blue collars can only ride hatchback or van)"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="25sp"
@@ -53,14 +53,14 @@
           >
 
         <TextView
-            android:id="@+id/answer1"
+            android:id="@+id/blue"
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:layout_marginStart="25dp"
             android:layout_marginEnd="25dp"
             android:background="@drawable/button_background"
             android:gravity="center"
-            android:text="Answer"
+            android:text="Blue collar"
             android:textColor="#ffc107"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -76,14 +76,14 @@
           android:layout_marginTop="31dp">
 
         <TextView
-            android:id="@+id/answer2"
+            android:id="@+id/white"
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:layout_marginStart="25dp"
             android:layout_marginEnd="25dp"
             android:background="@drawable/button_background"
             android:gravity="center"
-            android:text="Answer"
+            android:text="White collar"
             android:textColor="#ffc107"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -99,14 +99,14 @@
           android:layout_marginTop="31dp">
 
         <TextView
-            android:id="@+id/answer3"
+            android:id="@+id/executive"
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:layout_marginStart="25dp"
             android:layout_marginEnd="25dp"
             android:background="@drawable/button_background"
             android:gravity="center"
-            android:text="Answer"
+            android:text="Executive"
             android:textColor="#ffc107"
             android:textSize="18sp"
             android:textStyle="bold"

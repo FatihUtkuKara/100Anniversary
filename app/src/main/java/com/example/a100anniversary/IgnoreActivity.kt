@@ -2,6 +2,7 @@ package com.example.a100anniversary
 
 import android.content.Context
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
@@ -9,11 +10,10 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class MainActivity : AppCompatActivity() {
+class IgnoreActivity : AppCompatActivity() {
     companion object {
         private lateinit var mContext: Context
 
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_ignore)
 
         initialize()
 
@@ -33,32 +33,32 @@ class MainActivity : AppCompatActivity() {
         val textView7 = findViewById<TextView>(R.id.textView7)
         val answer1 = findViewById<TextView>(R.id.brand)
         val answer2 = findViewById<TextView>(R.id.model)
-        //val answer3 = findViewById<TextView>(R.id.answer3)
+        val answer3 = findViewById<TextView>(R.id.answer3)
         val statistics =findViewById<ImageView>(R.id.statistics)
 
         answer1.setOnClickListener {
             toggleVisibility(answer2, R.anim.slide_right)
-            //toggleVisibility(answer3, R.anim.slide_left)
+            toggleVisibility(answer3, R.anim.slide_left)
             toggleVisibility(textView7, R.anim.slide_up)
             toggleVisibility(appbar, R.anim.slide_down)
-            toggleVisibility(float, R.anim.slide_down, AccountActivity::class.java, 550,answer1,"employer")
+            toggleVisibility(float, R.anim.slide_down, EmployeeFirstActivity::class.java, 550,answer1)
         }
 
         answer2.setOnClickListener {
             toggleVisibility(answer1, R.anim.slide_right)
-            //toggleVisibility(answer3, R.anim.slide_left)
+            toggleVisibility(answer3, R.anim.slide_left)
             toggleVisibility(textView7, R.anim.slide_up)
             toggleVisibility(appbar, R.anim.slide_down)
-            toggleVisibility(float, R.anim.slide_down, AccountActivity::class.java, 550,answer2,"employee")
+            toggleVisibility(float, R.anim.slide_down, EmployerFirstActivity::class.java, 550,answer2)
         }
 
-        /*answer3.setOnClickListener {
+        answer3.setOnClickListener {
             toggleVisibility(answer1, R.anim.slide_right)
             toggleVisibility(answer2, R.anim.slide_left)
             toggleVisibility(textView7, R.anim.slide_up)
             toggleVisibility(appbar, R.anim.slide_down)
             toggleVisibility(float, R.anim.slide_down, EmployeeFirstActivity::class.java, 550,answer3)
-        } */
+        }
 
         statistics.setOnClickListener {
             val intent = Intent(mContext, StatisticsActivity::class.java)
@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun toggleVisibility(view: View, animationId: Int, targetClass: Class<*>, delay: Long, button :TextView,buttonName: String) {
+    private fun toggleVisibility(view: View, animationId: Int, targetClass: Class<*>, delay: Long, button : TextView) {
         val isViewVisible = view.visibility == View.VISIBLE
         val animation = AnimationUtils.loadAnimation(mContext, animationId)
 
@@ -80,9 +80,7 @@ class MainActivity : AppCompatActivity() {
 
                 Handler().postDelayed({
                     val intent = Intent(mContext, targetClass)
-                    intent.putExtra("activityname",buttonName )
                     mContext.startActivity(intent)
-
                 }, delay)
             }
 
@@ -101,7 +99,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onAnimationEnd(animation: Animation?) {
 
-                    view.visibility = if (isViewVisible) View.GONE else View.VISIBLE
+                view.visibility = if (isViewVisible) View.GONE else View.VISIBLE
 
             }
 
