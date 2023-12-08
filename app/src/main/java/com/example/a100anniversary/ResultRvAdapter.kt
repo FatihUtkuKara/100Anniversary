@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
-/*class ResultRvAdapter (private val mContext: Context, private val resultList:List<Results>: RecyclerView.Adapter<ResultRvAdapter.CardViewDesignObjectHolder>){
+class ResultRvAdapter (private val mContext: Context, private val resultList:List<Results>: RecyclerView.Adapter<ResultRvAdapter.CardViewDesignObjectHolder>){
     inner class CardViewDesignObjectHolder(view: View): RecyclerView.ViewHolder(view) {
         var CardView: CardView
 
@@ -70,4 +70,4 @@ import androidx.recyclerview.widget.RecyclerView
     }
 
 
-} */
+}
