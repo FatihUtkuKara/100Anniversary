@@ -30,25 +30,28 @@ class EmployeeFirstActivity : AppCompatActivity() {
 
         blueButton.setOnClickListener {
             val intent = Intent(this, ResultActivity::class.java)
+            intent.putExtra("workername","blue" )
             this.startActivity(intent)
         }
 
         whiteButton.setOnClickListener {
             val intent = Intent(this, ResultActivity::class.java)
+            intent.putExtra("workername","white" )
             this.startActivity(intent)
         }
 
         executiveButton.setOnClickListener {
             val intent = Intent(this, ResultActivity::class.java)
+            intent.putExtra("workername","executive" )
             this.startActivity(intent)
         }
 
     }
 
 
-    override fun onBackPressed() {
+   /* override fun onBackPressed() {
         // Geri butonuna basıldığında aşağıdan yukarıya animasyon eklemek için
         overridePendingTransition(R.anim.no_animation, R.anim.slide_out_down)
         super.onBackPressed()
-    }
+    } */
 }

@@ -34,8 +34,9 @@
             android:layout_marginEnd="102dp"
             android:layout_marginBottom="115dp"
             android:ems="10"
+            android:gravity="center"
             android:inputType="text"
-            android:text="Name"
+            android:text="E-mail"
             app:layout_constraintBottom_toTopOf="@+id/editTextNumberPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,20 +49,26 @@
             android:layout_marginStart="99dp"
             android:layout_marginTop="115dp"
             android:layout_marginEnd="102dp"
+            android:text="Password"
             android:ems="10"
+            android:gravity="center"
             android:inputType="numberPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextText" />
 
-        <Button
+        <TextView
             android:id="@+id/saveButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="158dp"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="130dp"
             android:layout_marginTop="84dp"
-            android:layout_marginEnd="159dp"
-            android:text="Save"
+            android:layout_marginEnd="130dp"
+            android:background="@drawable/button_background"
+            android:gravity="center"
+            android:text="Submit"
+
+            android:textColor="#ffc107"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword" />

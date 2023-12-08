@@ -1,21 +1,34 @@
 package com.example.a100anniversary
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.AbsListView.RecyclerListener
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 
 class ResultActivity : AppCompatActivity() {
     private lateinit var resultList : ArrayList<Results>
+    private lateinit var filteredList : List<Results>
+    private lateinit var filterButton : ImageView
     private lateinit var adapter: ResultRvAdapter
-
+    private lateinit var infoWorker : String
     private lateinit var rv: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
         rv = findViewById(R.id.rv)
+        filterButton= findViewById(R.id.filterButton)
+
+        if (intent.hasExtra("workername")) {
+            infoWorker = intent.getStringExtra("workername")!!
+        }
+
+        filterButton.setOnClickListener{
+            val intent = Intent(this, FilterActivity::class.java)
+            this.startActivity(intent)
+        }
 
         rv.layoutManager = StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL)
 
@@ -416,7 +429,23 @@ class ResultActivity : AppCompatActivity() {
         resultList.add(c174)
         resultList.add(c175)
 
-        adapter = ResultRvAdapter(this,resultList)
+        if(infoWorker.equals("executive")) {
+
+            filteredList = resultList.filter { it.bodyType.equals("Sedan") || it.bodyType.equals("Limousine") }
+
+    }
+        if(infoWorker.equals("white")) {
+
+            filteredList = resultList.filter { it.bodyType.equals("Sedan") || it.bodyType.equals("Hatchback") }
+
+        }
+
+        if(infoWorker.equals("blue")) {
+
+            filteredList = resultList.filter { it.bodyType.equals("Van") || it.bodyType.equals("Hatchback") }
+
+        }
+        adapter = ResultRvAdapter(this,filteredList,infoWorker)
 
         rv.adapter = adapter
 

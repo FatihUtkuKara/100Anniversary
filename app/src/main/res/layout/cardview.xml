@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="170dp"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -17,31 +17,14 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="140dp">
-
-            <TextView
-                android:id="@+id/enginesrc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="68dp"
-                android:fontFamily="sans-serif"
-                android:shadowDx="2"
-                android:shadowDy="2"
-                android:shadowRadius="1"
-                android:text="EngineSrc"
-                android:textColor="#B7C4CF"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="160dp">
 
             <TextView
                 android:id="@+id/modelYear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="44dp"
-                android:layout_marginTop="108dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="116dp"
                 android:fontFamily="sans-serif"
                 android:shadowDx="2"
                 android:shadowDy="2"
@@ -57,8 +40,9 @@
                 android:id="@+id/brand"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginStart="90dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="90dp"
                 android:fontFamily="sans-serif"
                 android:shadowDx="2"
                 android:shadowDy="2"
@@ -67,6 +51,7 @@
                 android:textColor="#B7C4CF"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,8 +59,8 @@
                 android:id="@+id/color"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="64dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="32dp"
                 android:fontFamily="sans-serif"
                 android:shadowDx="2"
                 android:shadowDy="2"
@@ -91,8 +76,8 @@
                 android:id="@+id/model"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="48dp"
                 android:fontFamily="sans-serif"
                 android:shadowDx="2"
                 android:shadowDy="2"
@@ -105,28 +90,11 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/transmission"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="68dp"
-                android:layout_marginEnd="36dp"
-                android:fontFamily="sans-serif"
-                android:shadowDx="2"
-                android:shadowDy="2"
-                android:shadowRadius="1"
-                android:text="Transmission"
-                android:textColor="#B7C4CF"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
                 android:id="@+id/safety"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="108dp"
-                android:layout_marginEnd="36dp"
+                android:layout_marginTop="116dp"
+                android:layout_marginEnd="40dp"
                 android:fontFamily="sans-serif"
                 android:shadowDx="2"
                 android:shadowDy="2"
@@ -142,8 +110,8 @@
                 android:id="@+id/bodyType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
-                android:layout_marginEnd="36dp"
+                android:layout_marginTop="88dp"
+                android:layout_marginEnd="88dp"
                 android:fontFamily="sans-serif"
                 android:shadowDx="2"
                 android:shadowDy="2"
@@ -159,8 +127,8 @@
                 android:id="@+id/price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="54dp"
-                android:layout_marginTop="108dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="116dp"
                 android:fontFamily="sans-serif"
                 android:shadowDx="2"
                 android:shadowDy="2"
@@ -183,7 +151,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
-                tools:srcCompat="@tools:sample/avatars" />
+                tools:srcCompat="@drawable/btn_background" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

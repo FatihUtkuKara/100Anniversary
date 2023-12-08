@@ -4,6 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 
 class AccountActivity : AppCompatActivity() {
     private lateinit var info:String
@@ -11,23 +15,33 @@ class AccountActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account)
 
-        val saveButton = findViewById<Button>(R.id.saveButton)
+        val saveButton = findViewById<TextView>(R.id.saveButton)
 
         if (intent.hasExtra("activityname")) {
             info = intent.getStringExtra("activityname")!!
         }
 
-        saveButton.setOnClickListener{
-            if (info.equals("employer")){
-                val intent = Intent(this, EmployerFirstActivity::class.java)
-                this.startActivity(intent)
-            }
-            else if (info.equals("employee")){
-                val intent = Intent(this, EmployeeFirstActivity::class.java)
-                this.startActivity(intent)
+        saveButton.setOnClickListener {
+            val nameEditText = findViewById<EditText>(R.id.editTextText)
+            val passwordEditText = findViewById<EditText>(R.id.editTextNumberPassword)
+
+            val name = nameEditText.text.toString().trim()
+            val password = passwordEditText.text.toString().trim()
+
+            if (name.isEmpty() || password.length != 6) {
+                // Show a toast message indicating invalid input
+                Toast.makeText(this, "Please enter a valid name and a 6-digit password", Toast.LENGTH_SHORT).show()
+            } else {
+                // Continue to the next activity based on the user type
+                if (info == "employer") {
+                    val intent = Intent(this, EmployerFirstActivity::class.java)
+                    startActivity(intent)
+                } else if (info == "employee") {
+                    val intent = Intent(this, EmployeeFirstActivity::class.java)
+                    startActivity(intent)
+                }
             }
         }
-
 
 
 
