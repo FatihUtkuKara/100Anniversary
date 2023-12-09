@@ -3,22 +3,25 @@ package com.example.a100anniversary
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 
 class AccountActivity : AppCompatActivity() {
     private lateinit var info:String
+    private lateinit var sortedList: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account)
-
+        sortedList = ""
         val saveButton = findViewById<TextView>(R.id.saveButton)
 
         if (intent.hasExtra("activityname")) {
             info = intent.getStringExtra("activityname")!!
+        }
+
+        if (intent.hasExtra("sortedList")) {
+            sortedList = intent.getStringExtra("sortedList").toString()
         }
 
         saveButton.setOnClickListener {
@@ -35,9 +38,11 @@ class AccountActivity : AppCompatActivity() {
                 // Continue to the next activity based on the user type
                 if (info == "employer") {
                     val intent = Intent(this, EmployerFirstActivity::class.java)
+
                     startActivity(intent)
                 } else if (info == "employee") {
                     val intent = Intent(this, EmployeeFirstActivity::class.java)
+                    intent.putExtra("sortedList",sortedList)
                     startActivity(intent)
                 }
             }

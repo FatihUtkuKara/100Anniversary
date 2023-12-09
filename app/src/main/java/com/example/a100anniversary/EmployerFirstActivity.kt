@@ -1,5 +1,7 @@
 package com.example.a100anniversary
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -102,19 +104,23 @@ private fun onOptionSelected(selectedOption: Int , answer : String) {
 
     }
 
-    val resultMessage = "Total points: $totalPoints\n" +
-            "Brand Points: $brandPoint\n" +
-            "Model Points: $modelPoint\n" +
-            "Body Type Points: $bodyTypePoint\n" +
-            "Model Year Points: $modelYearPoint\n" +
-            "Engine Source Points: $engineSourcePoint\n" +
-            "Transmission Points: $transmissionPoint\n" +
-            "Color Points: $colorPoint\n" +
-            "Odometer Points: $odometerPoint\n" +
-            "Safety Points: $safetyPoint"
+    val pointsMap = mapOf(
 
+        "Brand" to brandPoint,
+        "Model" to modelPoint,
+        "Body Type" to bodyTypePoint,
+        "Model Year" to modelYearPoint,
+        "Engine Source" to engineSourcePoint,
+        "Transmission" to transmissionPoint,
+        "Color" to colorPoint,
+        "Odometer" to odometerPoint,
+        "Safety" to safetyPoint
+    )
 
-    Log.e("Survey Results", resultMessage)
+    val sortedPoints = pointsMap.entries
+        .sortedByDescending { it.value }
+    Log.e("Sıralanmış Puanlar:", sortedPoints.joinToString("\n") { "${it.key}: ${it.value}" })
+
 
     currentIndex2++
     if (currentIndex2 == 8) {
@@ -127,7 +133,14 @@ private fun onOptionSelected(selectedOption: Int , answer : String) {
     if (currentIndex < values.size - 1) {
         showQuestion()
     } else {
-        showResult()
+
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("sortedPoints", sortedPoints.joinToString("\n") { "${it.key}: ${it.value}" })
+        editor.apply()
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("sortedList", sortedPoints.joinToString("\n") { "${it.key}: ${it.value}" })
+        this.startActivity(intent)
     }
 }
 

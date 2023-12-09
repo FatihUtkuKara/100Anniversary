@@ -19,9 +19,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 class MainActivity : AppCompatActivity() {
     companion object {
         private lateinit var mContext: Context
+        private lateinit var sortedList: String
 
         fun initializeContext(context: Context) {
             mContext = context
+
+
         }
     }
 
@@ -32,8 +35,12 @@ class MainActivity : AppCompatActivity() {
         //executive sonrası info verme
         // collar text
         //sıralama
+        // bütün infolar resultta görünecek
           initialize()
-
+          sortedList = ""
+        if (intent.hasExtra("sortedList")) {
+            sortedList = intent.getStringExtra("sortedList").toString()
+        }
          if (intent.hasExtra("start")) {
 
             setContentView(R.layout.activity_main)
@@ -67,7 +74,7 @@ class MainActivity : AppCompatActivity() {
                 toggleVisibility(answer2, R.anim.slide_left)
                 toggleVisibility(textView7, R.anim.slide_up)
                 toggleVisibility(appbar, R.anim.slide_down)
-                toggleVisibility(float, R.anim.slide_down, EmployeeFirstActivity::class.java, 550,answer3)
+                toggleVisibility(float, R.anim.slide_down, EmployerFirstActivity::class.java, 550,answer3)
             } */
 
             statistics.setOnClickListener {
@@ -99,6 +106,7 @@ class MainActivity : AppCompatActivity() {
                 Handler().postDelayed({
                     val intent = Intent(mContext, targetClass)
                     intent.putExtra("activityname",buttonName )
+                    intent.putExtra("sortedList", sortedList)
                     mContext.startActivity(intent)
 
                 }, delay)

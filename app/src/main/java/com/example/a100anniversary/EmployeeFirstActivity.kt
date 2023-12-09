@@ -13,7 +13,7 @@ class EmployeeFirstActivity : AppCompatActivity() {
     private lateinit var blueButton:TextView
     private lateinit var whiteButton: TextView
     private lateinit var executiveButton: TextView
-
+    private lateinit var sortedList: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -23,26 +23,35 @@ class EmployeeFirstActivity : AppCompatActivity() {
         whiteButton = findViewById(R.id.white)
         executiveButton = findViewById(R.id.executive)
 
+        sortedList = ""
+
+        if (intent.hasExtra("sortedList")) {
+            sortedList = intent.getStringExtra("sortedList")!!
+        }
+
 
         // blue collar body type sadece hatchback ve van filtrelenmiş şekilde çıkıyor
         //white body type hatchback ve sedan
         //executive sedan ve limo
 
         blueButton.setOnClickListener {
-            val intent = Intent(this, ResultActivity::class.java)
+            val intent = Intent(this, InformationActivity::class.java)
             intent.putExtra("workername","blue" )
+            intent.putExtra("sortedList",sortedList)
             this.startActivity(intent)
         }
 
         whiteButton.setOnClickListener {
-            val intent = Intent(this, ResultActivity::class.java)
+            val intent = Intent(this, InformationActivity::class.java)
             intent.putExtra("workername","white" )
+            intent.putExtra("sortedList",sortedList)
             this.startActivity(intent)
         }
 
         executiveButton.setOnClickListener {
-            val intent = Intent(this, ResultActivity::class.java)
+            val intent = Intent(this, InformationActivity::class.java)
             intent.putExtra("workername","executive" )
+            intent.putExtra("sortedList",sortedList)
             this.startActivity(intent)
         }
 

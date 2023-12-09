@@ -36,6 +36,9 @@
             android:name=".ResultActivity"
             android:exported="false" />
         <activity
+            android:name=".InformationActivity"
+            android:exported="false" />
+        <activity
             android:name=".EmployerFirstActivity"
             android:exported="false" />
         <activity
