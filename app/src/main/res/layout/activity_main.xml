@@ -75,6 +75,8 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="31dp">
 
+
+
                 <TextView
                     android:id="@+id/model"
                     android:layout_width="match_parent"
@@ -97,6 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="31dp">
+
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
