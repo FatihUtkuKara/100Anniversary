@@ -3,6 +3,7 @@ package com.example.a100anniversary
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 class ResultActivity : AppCompatActivity() {
     private lateinit var resultList : ArrayList<Results>
     private lateinit var filteredList : List<Results>
+    private lateinit var secondFilteredList :List<Results>
     private lateinit var filterButton : ImageView
     private lateinit var adapter: ResultRvAdapter
     private lateinit var infoWorker : String
@@ -27,9 +29,15 @@ class ResultActivity : AppCompatActivity() {
 
         filterButton.setOnClickListener{
             val intent = Intent(this, FilterActivity::class.java)
+            intent.putExtra("workername",infoWorker )
             this.startActivity(intent)
         }
 
+        val colorList = intent.getStringArrayListExtra("colorList")
+        val brandList = intent.getStringArrayListExtra("brandList")
+
+        Log.d("ResultActivity", "colorList: $colorList")
+        Log.d("ResultActivity", "brandList: $brandList")
         rv.layoutManager = StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL)
 
         val c1 = Results("Toyota", "Corolla Hatchback", "Hatchback", 1460000, 2023, "Hybrid", "Automatic", "Blue", 3500, 85.5)
@@ -445,12 +453,25 @@ class ResultActivity : AppCompatActivity() {
             filteredList = resultList.filter { it.bodyType.equals("Van") || it.bodyType.equals("Hatchback") }
 
         }
+
+
+        if(!colorList.isNullOrEmpty()){
+
+            filteredList = filteredList.filter { results ->  colorList.contains(results.color)
+
+            }
+        }
+
+        if(!brandList.isNullOrEmpty()){
+
+            filteredList = filteredList.filter { results ->  brandList.contains(results.brand)
+
+            }
+        }
+
         adapter = ResultRvAdapter(this,filteredList,infoWorker)
 
         rv.adapter = adapter
-
-
-
 
     }
 }

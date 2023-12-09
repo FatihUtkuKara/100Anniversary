@@ -28,6 +28,21 @@
             app:layout_constraintTop_toTopOf="parent">
 
 
+            <CheckBox
+                android:id="@+id/colorBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="34dp"
+                android:layout_marginTop="84dp"
+                android:layout_marginEnd="24dp"
+                android:text="Black"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/colorRed"
+                app:layout_constraintStart_toEndOf="@+id/colorYellow"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
@@ -87,7 +102,7 @@
                 android:id="@+id/colorOrange"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="63dp"
+                android:layout_marginStart="36dp"
                 android:layout_marginTop="28dp"
                 android:text="Orange"
                 android:textColor="@color/white"
@@ -112,7 +127,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
-                android:layout_marginEnd="63dp"
+                android:layout_marginEnd="28dp"
                 android:text="Grey"
                 android:textColor="@color/white"
                 android:textStyle="bold"
@@ -123,13 +138,11 @@
                 android:id="@+id/colorYellow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="42dp"
+                android:layout_marginStart="4dp"
                 android:layout_marginTop="28dp"
-                android:layout_marginEnd="39dp"
                 android:text="Yellow"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/colorGrey"
                 app:layout_constraintStart_toEndOf="@+id/colorOrange"
                 app:layout_constraintTop_toBottomOf="@+id/colorSilver" />
 

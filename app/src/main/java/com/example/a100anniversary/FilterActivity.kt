@@ -12,12 +12,17 @@ import android.widget.TextView
 import android.widget.Toast
 
 class FilterActivity : AppCompatActivity() {
+    private lateinit var infoWorker : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_filter)
 
+        if (intent.hasExtra("workername")) {
+            infoWorker = intent.getStringExtra("workername")!!
+        }
         val okayButton :TextView = findViewById(R.id.okay)
         val colorBlue : CheckBox = findViewById(R.id.colorBlue)
+        val colorBlack : CheckBox = findViewById(R.id.colorBlack)
         val colorSilver : CheckBox = findViewById(R.id.colorSilver)
         val colorWhite : CheckBox = findViewById(R.id.colorWhite)
         val colorRed : CheckBox = findViewById(R.id.colorRed)
@@ -52,155 +57,269 @@ class FilterActivity : AppCompatActivity() {
 
         colorBlue.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Blue", isChecked)
-            colorList.add("Blue")
+            if (isChecked) {
+                colorList.add("Blue")
+            } else {
+                colorList.remove("Blue")
+            }
         }
         colorSilver.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Silver", isChecked)
-            colorList.add("Silver")
+            if (isChecked) {
+                colorList.add("Silver")
+            } else {
+                colorList.remove("Silver")
+            }
+        }
+        colorBlack.setOnCheckedChangeListener { buttonView, isChecked ->
+            handleCheckboxSelection("Black", isChecked)
+            if (isChecked) {
+                colorList.add("Black")
+            } else {
+                colorList.remove("Black")
+            }
         }
         colorWhite.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("White", isChecked)
-            colorList.add("White")
+            if (isChecked) {
+                colorList.add("White")
+            } else {
+                colorList.remove("White")
+            }
         }
         colorRed.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Red", isChecked)
-            colorList.add("Red")
+            if (isChecked) {
+                colorList.add("Red")
+            } else {
+                colorList.remove("Red")
+            }
         }
         colorOrange.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Orange", isChecked)
-            colorList.add("Orange")
+            if (isChecked) {
+                colorList.add("Orange")
+            } else {
+                colorList.remove("Orange")
+            }
         }
         colorYellow.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Yellow", isChecked)
-            colorList.add("Yellow")
+            if (isChecked) {
+                colorList.add("Yellow")
+            } else {
+                colorList.remove("Yellow")
+            }
         }
         colorGrey.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Grey", isChecked)
-            colorList.add("Grey")
+            if (isChecked) {
+                colorList.add("Toyota")
+            } else {
+                colorList.remove("Toyota")
+            }
+
         }
 //TODO BRAND-------------------------------------------------------------------
         brandToyota.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Toyota", isChecked)
-            brandList.add("Toyota")
+            if (isChecked) {
+                brandList.add("Toyota")
+            } else {
+                brandList.remove("Toyota")
+            }
         }
         brandVolkswagen.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Volkswagen", isChecked)
-            brandList.add("Volkswagen")
+            if (isChecked) {
+                brandList.add("Volkswagen")
+            } else {
+                brandList.remove("Volkswagen")
+            }
         }
         brandAudi.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Audi", isChecked)
-            brandList.add("Audi")
+            if (isChecked) {
+                brandList.add("Audi")
+            } else {
+                brandList.remove("Audi")
+            }
         }
         brandMini.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Mini", isChecked)
-            brandList.add("Mini")
+            if (isChecked) {
+                brandList.add("Mini")
+            } else {
+                brandList.remove("Mini")
+            }
         }
         brandVolvo.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Volvo", isChecked)
-            brandList.add("Volvo")
+            if (isChecked) {
+                brandList.add("Volvo")
+            } else {
+                brandList.remove("Volvo")
+            }
         }
         brandPeugeot.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Peugeot", isChecked)
-            brandList.add("Peugeot")
+            if (isChecked) {
+                brandList.add("Peugeot")
+            } else {
+                brandList.remove("Peugeot")
+            }
         }
         brandOpel.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Opel", isChecked)
-            brandList.add("Opel")
+            if (isChecked) {
+                brandList.add("Opel")
+            } else {
+                brandList.remove("Opel")
+            }
         }
         brandLexus.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Lexus", isChecked)
-            brandList.add("Lexus")
+            if (isChecked) {
+                brandList.add("Lexus")
+            } else {
+                brandList.remove("Lexus")
+            }
         }
         brandRenault.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Renault", isChecked)
-            brandList.add("Renault")
+            if (isChecked) {
+                brandList.add("Renault")
+            } else {
+                brandList.remove("Renault")
+            }
         }
         brandFord.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Ford", isChecked)
-            brandList.add("Ford")
+            if (isChecked) {
+                brandList.add("Ford")
+            } else {
+                brandList.remove("Ford")
+            }
         }
         brandHyundai.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Hyundai", isChecked)
-            brandList.add("Hyundai")
+            if (isChecked) {
+                brandList.add("Hyundai")
+            } else {
+                brandList.remove("Hyundai")
+            }
         }
         brandKia.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Kia", isChecked)
-            brandList.add("Kia")
+            if (isChecked) {
+                brandList.add("Kia")
+            } else {
+                brandList.remove("Kia")
+            }
         }
         brandSkoda.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Skoda", isChecked)
-            brandList.add("Scoda")
+            if (isChecked) {
+                brandList.add("Scoda")
+            } else {
+                brandList.remove("Scoda")
+            }
         }
         brandCitroen.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Citroen", isChecked)
-            brandList.add("Citroen")
+            if (isChecked) {
+                brandList.add("Citroen")
+            } else {
+                brandList.remove("Citroen")
+            }
         }
         brandFiat.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Fiat", isChecked)
-            brandList.add("Fiat")
+            if (isChecked) {
+                brandList.add("Fiat")
+            } else {
+                brandList.remove("Fiat")
+            }
         }
         brandCupra.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Cupra", isChecked)
-            brandList.add("Cupra")
+            if (isChecked) {
+                brandList.add("Cupra")
+            } else {
+                brandList.remove("Cupra")
+            }
         }
         brandBMW.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("BMW", isChecked)
-            brandList.add("BMW")
+            if (isChecked) {
+                brandList.add("BMW")
+            } else {
+                brandList.remove("BMW")
+            }
         }
         brandMercedesBenz.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Mercedes-Benz", isChecked)
-            brandList.add("Mercedes-Benz")
+            if (isChecked) {
+                brandList.add("Mercedes-Benz")
+            } else {
+                brandList.remove("Mercedes-Benz")
+            }
         }
         brandSmart.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Smart", isChecked)
-            brandList.add("Smart")
+            if (isChecked) {
+                brandList.add("Smart")
+            } else {
+                brandList.remove("Smart")
+            }
         }
         brandNissan.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Nissan", isChecked)
-            brandList.add("Nissan")
+            if (isChecked) {
+                brandList.add("Nissan")
+            } else {
+                brandList.remove("Nissan")
+            }
         }
         brandAlfaRomeo.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Alfa Romeo", isChecked)
-            brandList.add("Alfa Romeo")
+            if (isChecked) {
+                brandList.add("Alfa Romeo")
+            } else {
+                brandList.remove("Alfa Romeo")
+            }
         }
         brandTesla.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Tesla", isChecked)
-            brandList.add("Tesla")
+            if (isChecked) {
+                brandList.add("Tesla")
+            } else {
+                brandList.remove("Tesla")
+            }
         }
         brandPorsche.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Porsche", isChecked)
-            brandList.add("Porsche")
+            if (isChecked) {
+                brandList.add("Porsche")
+            } else {
+                brandList.remove("Porsche")
+            }
         }
 //TODO--------------------------------------------------------
         okayButton.setOnClickListener{
             val intent = Intent(this, ResultActivity::class.java)
             intent.putStringArrayListExtra("colorList", ArrayList(colorList))
-            intent.putStringArrayListExtra("brandList2", ArrayList(brandList))
+            intent.putStringArrayListExtra("brandList", ArrayList(brandList))
+            intent.putExtra("workername",infoWorker )
             this.startActivity(intent)
         }
 
 
-           /* val checkboxOption1: CheckBox = findViewById(R.id.checkboxOption1)
-            val checkboxOption2: CheckBox = findViewById(R.id.checkboxOption2)
-            val checkboxOption3: CheckBox = findViewById(R.id.checkboxOption3)
 
-            // CheckBox'ların durum değişikliklerini dinlemek için bir listener ekleyin
-            checkboxOption1.setOnCheckedChangeListener { buttonView, isChecked ->
-                handleCheckboxSelection("Seçenek 1", isChecked)
-            }
-
-            checkboxOption2.setOnCheckedChangeListener { buttonView, isChecked ->
-                handleCheckboxSelection("Seçenek 2", isChecked)
-            }
-
-            checkboxOption3.setOnCheckedChangeListener { buttonView, isChecked ->
-                handleCheckboxSelection("Seçenek 3", isChecked)
-            } */
         }
 
 
-            // Seçilen seçeneğe göre işlemleri yapabilirsiniz
-            //showToast("Seçenek: $selectedOption")
+
 
     private fun showToast(message: String) {
         Toast.makeText(this ,message, Toast.LENGTH_SHORT).show()

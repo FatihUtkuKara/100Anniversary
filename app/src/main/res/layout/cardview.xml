@@ -93,7 +93,6 @@
                 android:id="@+id/color"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="68dp"
                 android:layout_marginTop="68dp"
                 android:layout_marginEnd="50dp"
                 android:fontFamily="sans-serif"
@@ -105,7 +104,6 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/bodyType"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -165,7 +163,6 @@
                 android:id="@+id/bodyType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="84dp"
                 android:layout_marginTop="68dp"
                 android:fontFamily="sans-serif"
                 android:shadowDx="2"
@@ -175,7 +172,8 @@
                 android:textColor="#B7C4CF"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/model"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
