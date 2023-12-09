@@ -133,8 +133,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_margin="15dp"
                     android:layout_weight="0.2"
-                    app:srcCompat="@drawable/btn_1"
-                    app:tint="@color/white" />
+                    app:srcCompat="@drawable/faqs" />
 
                 <ImageView
                     android:id="@+id/statistics"
@@ -143,8 +142,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_margin="15dp"
                     android:layout_weight="0.2"
-                    app:srcCompat="@drawable/btn_2"
-                    app:tint="@color/white" />
+                    app:srcCompat="@drawable/sss" />
 
                 <ImageView
                     android:id="@+id/imageView4"
@@ -163,8 +161,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_margin="15dp"
                     android:layout_weight="0.2"
-                    app:srcCompat="@drawable/btn_4"
-                    app:tint="@color/white" />
+                    app:srcCompat="@drawable/aboutus" />
 
                 <ImageView
                     android:id="@+id/imageView6"
@@ -173,8 +170,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_margin="15dp"
                     android:layout_weight="0.2"
-                    app:srcCompat="@drawable/btn_3"
-                    app:tint="@color/white" />
+                    app:srcCompat="@drawable/how" />
             </LinearLayout>
 
         </com.google.android.material.bottomappbar.BottomAppBar>

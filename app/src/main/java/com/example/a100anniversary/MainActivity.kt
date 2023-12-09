@@ -30,12 +30,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-// iconlar 1powerbi 2hakkımızda 3sıkça ss 4 sistem nasıl çalışır  geri butonu
-        // employee sayı sayma + sonunda mainactivity yönlendirme
+        //TODO iconlar 1powerbi 2hakkımızda 3sıkça ss 4 sistem nasıl çalışır  geri butonu
+        //employee sayı sayma + sonunda mainactivity yönlendirme
         //executive sonrası info verme
-        // collar text
+        //collar text
         //sıralama
-        // bütün infolar resultta görünecek
+        //bütün infolar resultta görünecek
+        //TODO card view tasarım
+        //TODO Filtreleme
+        //TODO Sıralama
+        //TODO animasyonlar
+
           initialize()
           sortedList = ""
         if (intent.hasExtra("sortedList")) {

@@ -26,19 +26,40 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginBottom="80dp">
+                android:layout_height="170dp"
+                android:layout_marginBottom="20dp">
 
                 <TextView
                     android:id="@+id/textView7"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="100dp"
-                    android:text="What is your employees working class to purchase car fleet?(Blue collars can only ride hatchback or van)"
+                    android:text="What is your employees working class to purchase car fleet?"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="25sp"
                     android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="50dp">
+
+                <TextView
+                    android:id="@+id/textView79"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="1dp"
+                    android:text="(Blue collars can only ride hatchback or van)\n(White collar can only ride sedan or hatchback)\n(Executive can only ride Sedan or Limousine"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

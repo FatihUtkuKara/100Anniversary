@@ -119,7 +119,7 @@ private fun onOptionSelected(selectedOption: Int , answer : String) {
 
     val sortedPoints = pointsMap.entries
         .sortedByDescending { it.value }
-    Log.e("Sıralanmış Puanlar:", sortedPoints.joinToString("\n") { "${it.key}: ${it.value}" })
+    Log.e("Sıralanmış Puanlar:", sortedPoints.joinToString("\n") { "${it.key}" })
 
 
     currentIndex2++
@@ -136,7 +136,7 @@ private fun onOptionSelected(selectedOption: Int , answer : String) {
 
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
-        editor.putString("sortedPoints", sortedPoints.joinToString("\n") { "${it.key}: ${it.value}" })
+        editor.putString("sortedPoints", sortedPoints.joinToString("\n") { "${it.key}" })
         editor.apply()
         val intent = Intent(this, MainActivity::class.java)
         intent.putExtra("sortedList", sortedPoints.joinToString("\n") { "${it.key}: ${it.value}" })
