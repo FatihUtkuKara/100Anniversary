@@ -40,6 +40,8 @@ class ResultActivity : AppCompatActivity() {
         val engineSrcList = intent.getStringArrayListExtra("engineSrcList")
         val transmissionList = intent.getStringArrayListExtra("transmissionList")
         val modelYearList = intent.getStringArrayListExtra("modelYearList")
+        var minPriceInt = intent.getIntExtra("minPrice",0)
+        var maxPriceInt = intent.getIntExtra("maxPrice",0)
 
 
 
@@ -50,7 +52,8 @@ class ResultActivity : AppCompatActivity() {
         Log.d("ResultActivity", "engineSrcList: $engineSrcList")
         Log.d("ResultActivity", "transmissionList: $transmissionList")
         Log.d("ResultActivity", "modelYearList: $modelYearList")
-
+        Log.d("ResultActivity", "priceminList: $minPriceInt")
+        Log.d("ResultActivity", "pricemaxList: $maxPriceInt")
 
         rv.layoutManager = StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL)
 
@@ -509,6 +512,14 @@ class ResultActivity : AppCompatActivity() {
             filteredList = filteredList.filter { results ->  modelYearList.contains(results.modelYear.toString())
 
             }
+        }
+
+        if(minPriceInt != 0 && maxPriceInt != 0){
+
+            filteredList = filteredList.filter { results ->
+                results.price in minPriceInt..maxPriceInt
+            }
+
         }
         adapter = ResultRvAdapter(this,filteredList,infoWorker)
 

@@ -6,6 +6,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.CheckBox
+import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
@@ -102,6 +103,12 @@ class FilterActivity : AppCompatActivity() {
         val modelYear2021: CheckBox = findViewById(R.id.modelYear2021)
         val modelYear2022: CheckBox = findViewById(R.id.modelYear2022)
         val modelYear2023: CheckBox = findViewById(R.id.modelYear2023)
+        val minPrice : EditText = findViewById(R.id.minPrice)
+        val maxPrice : EditText = findViewById(R.id.maxPrice)
+        var minPriceInt : Int = 0
+        var maxPriceInt : Int = 0
+
+
 
 
         val brandList = mutableListOf<String>()
@@ -806,6 +813,13 @@ class FilterActivity : AppCompatActivity() {
 
 //TODO--------------------------------------------------------
         okayButton.setOnClickListener{
+
+            if(!maxPrice.text.toString().isNullOrEmpty()){
+                maxPriceInt = Integer.parseInt(maxPrice.text.toString())
+            }
+            if(!minPrice.text.toString().isNullOrEmpty()){
+                minPriceInt = Integer.parseInt(minPrice.text.toString())
+            }
             val intent = Intent(this, ResultActivity::class.java)
             intent.putStringArrayListExtra("colorList", ArrayList(colorList))
             intent.putStringArrayListExtra("brandList", ArrayList(brandList))
@@ -814,6 +828,9 @@ class FilterActivity : AppCompatActivity() {
             intent.putStringArrayListExtra("engineSrcList", ArrayList(engineSrcList))
             intent.putStringArrayListExtra("transmissionList", ArrayList(transmissionList))
             intent.putStringArrayListExtra("modelYearList", ArrayList(modelYearList))
+            intent.putExtra("minPrice", minPriceInt)
+            intent.putExtra("maxPrice", maxPriceInt)
+
             intent.putExtra("workername",infoWorker )
             this.startActivity(intent)
         }

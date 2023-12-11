@@ -1414,9 +1414,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:text="Name" />
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:hint="Minimum Price"
+                    android:textColorHint="#ffffff"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/maxPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:hint="Maximum Price"
+                    android:textColorHint="#ffffff"
+                    android:inputType="number" />
+
+
 
 
             </LinearLayout>
