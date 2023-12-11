@@ -89,9 +89,28 @@ class FilterActivity : AppCompatActivity() {
         val modelEClass: CheckBox = findViewById(R.id.modelEClass)
         val modelTransporterPanelvan: CheckBox = findViewById(R.id.modelTransporterPanelvan)
         val modelScudoPanelvan: CheckBox = findViewById(R.id.ScudoPanelvan)
+        val bodyTypeHatchback: CheckBox = findViewById(R.id.bodyTypeHatchback)
+        val bodyTypeSedan: CheckBox = findViewById(R.id.bodyTypeSedan)
+        val bodyTypeLimousine: CheckBox = findViewById(R.id.bodyTypeLimousine)
+        val bodyTypeVan: CheckBox = findViewById(R.id.bodyTypeVan)
+        val engineSrcDiesel: CheckBox = findViewById(R.id.engineSrcDiesel)
+        val engineSrcElectric: CheckBox = findViewById(R.id.engineSrcElectric)
+        val engineSrcHybrid: CheckBox = findViewById(R.id.engineSrcHybrid)
+        val engineSrcPetrol: CheckBox = findViewById(R.id.engineSrcPetrol)
+        val transmissionManuel: CheckBox = findViewById(R.id.transManuel)
+        val transmissionAutomatic: CheckBox = findViewById(R.id.transAutomatic)
+        val modelYear2021: CheckBox = findViewById(R.id.modelYear2021)
+        val modelYear2022: CheckBox = findViewById(R.id.modelYear2022)
+        val modelYear2023: CheckBox = findViewById(R.id.modelYear2023)
 
 
         val brandList = mutableListOf<String>()
+        val modelList = mutableListOf<String>()
+        val bodyTypeList = mutableListOf<String>()
+        val engineSrcList = mutableListOf<String>()
+        val transmissionList = mutableListOf<String>()
+        val modelYearList = mutableListOf<String>()
+
 
         colorBlue.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Blue", isChecked)
@@ -349,330 +368,452 @@ class FilterActivity : AppCompatActivity() {
         modelCorollaHatchback.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Corolla Hatchback", isChecked)
             if (isChecked) {
-                brandList.add("Corolla Hatchback")
+                modelList.add("Corolla Hatchback")
             } else {
-                brandList.remove("Corolla Hatchback")
+                modelList.remove("Corolla Hatchback")
             }
         }
 
         modelGolf.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Golf", isChecked)
             if (isChecked) {
-                brandList.add("Golf")
+                modelList.add("Golf")
             } else {
-                brandList.remove("Golf")
+                modelList.remove("Golf")
             }
         }
 
         modelPolo.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Polo", isChecked)
             if (isChecked) {
-                brandList.add("Polo")
+                modelList.add("Polo")
             } else {
-                brandList.remove("Polo")
+                modelList.remove("Polo")
             }
         }
 
         modelA3Sportback.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("A3 Sportback", isChecked)
             if (isChecked) {
-                brandList.add("A3 Sportback")
+                modelList.add("A3 Sportback")
             } else {
-                brandList.remove("A3 Sportback")
+                modelList.remove("A3 Sportback")
             }
         }
 
         modelCooper5Door.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Cooper 5 Door", isChecked)
             if (isChecked) {
-                brandList.add("Cooper 5 Door")
+                modelList.add("Cooper 5 Door")
             } else {
-                brandList.remove("Cooper 5 Door")
+                modelList.remove("Cooper 5 Door")
             }
         }
 
         model308.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("308", isChecked)
             if (isChecked) {
-                brandList.add("308")
+                modelList.add("308")
             } else {
-                brandList.remove("308")
+                modelList.remove("308")
             }
         }
 
         modelTipoHatchback.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Tipo Hatchback", isChecked)
             if (isChecked) {
-                brandList.add("Tipo Hatchback")
+                modelList.add("Tipo Hatchback")
             } else {
-                brandList.remove("Tipo Hatchback")
+                modelList.remove("Tipo Hatchback")
             }
         }
 
         modelCorsa.setOnCheckedChangeListener { buttonView, isChecked ->
                     handleCheckboxSelection("Corsa", isChecked)
                     if (isChecked) {
-                        brandList.add("Corsa")
+                        modelList.add("Corsa")
                     } else {
-                        brandList.remove("Corsa")
+                        modelList.remove("Corsa")
                     }
                 }
         modelZoe.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Zoe", isChecked)
             if (isChecked) {
-                brandList.add("Zoe")
+                modelList.add("Zoe")
             } else {
-                brandList.remove("Zoe")
+                modelList.remove("Zoe")
             }
         }
 
         modelCorollaFocus.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Focus", isChecked)
             if (isChecked) {
-                brandList.add("Focus")
+                modelList.add("Focus")
             } else {
-                brandList.remove("Focus")
+                modelList.remove("Focus")
             }
         }
 
         modeli20.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("i20", isChecked)
             if (isChecked) {
-                brandList.add("i20")
+                modelList.add("i20")
             } else {
-                brandList.remove("i20")
+                modelList.remove("i20")
             }
         }
 
         modelAstra.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Astra", isChecked)
             if (isChecked) {
-                brandList.add("Astra")
+                modelList.add("Astra")
             } else {
-                brandList.remove("Astra")
+                modelList.remove("Astra")
             }
         }
 
         modelPicanto.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Picanto", isChecked)
             if (isChecked) {
-                brandList.add("Picanto")
+                modelList.add("Picanto")
             } else {
-                brandList.remove("Picanto")
+                modelList.remove("Picanto")
             }
         }
 
         modelScala.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Scala", isChecked)
             if (isChecked) {
-                brandList.add("Scala")
+                modelList.add("Scala")
             } else {
-                brandList.remove("Scala")
+                modelList.remove("Scala")
             }
         }
 
         modelC3.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("C3", isChecked)
             if (isChecked) {
-                brandList.add("C3")
+                modelList.add("C3")
             } else {
-                brandList.remove("C3")
+                modelList.remove("C3")
             }
         }
 
         model500.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("500", isChecked)
             if (isChecked) {
-                brandList.add("500")
+                modelList.add("500")
             } else {
-                brandList.remove("500")
+                modelList.remove("500")
             }
         }
 
         modelLeon.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Leon", isChecked)
             if (isChecked) {
-                brandList.add("Leon")
+                modelList.add("Leon")
             } else {
-                brandList.remove("Leon")
+                modelList.remove("Leon")
             }
         }
 
         model1Series.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("1 Series", isChecked)
             if (isChecked) {
-                brandList.add("1 Series")
+                modelList.add("1 Series")
             } else {
-                brandList.remove("1 Series")
+                modelList.remove("1 Series")
             }
         }
 
         modelAClass.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("A Class", isChecked)
             if (isChecked) {
-                brandList.add("A Class")
+                modelList.add("A Class")
             } else {
-                brandList.remove("A Class")
+                modelList.remove("A Class")
             }
         }
 
         modelEQ.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("EQ", isChecked)
             if (isChecked) {
-                brandList.add("EQ")
+                modelList.add("EQ")
             } else {
-                brandList.remove("EQ")
+                modelList.remove("EQ")
             }
         }
 
         modelMicra.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Micra", isChecked)
             if (isChecked) {
-                brandList.add("Micra")
+                modelList.add("Micra")
             } else {
-                brandList.remove("Micra")
+                modelList.remove("Micra")
             }
         }
 
         model3Series.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("3 Series", isChecked)
             if (isChecked) {
-                brandList.add("3 Series")
+                modelList.add("3 Series")
             } else {
-                brandList.remove("3 Series")
+                modelList.remove("3 Series")
             }
         }
 
         model5Series.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("5 Series", isChecked)
             if (isChecked) {
-                brandList.add("5 Series")
+                modelList.add("5 Series")
             } else {
-                brandList.remove("5 Series")
+                modelList.remove("5 Series")
             }
         }
 
         modelTipoSedan.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Tipo Sedan", isChecked)
             if (isChecked) {
-                brandList.add("Tipo Sedan")
+                modelList.add("Tipo Sedan")
             } else {
-                brandList.remove("Tipo Sedan")
+                modelList.remove("Tipo Sedan")
             }
         }
 
         modelGiulia.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Giulia", isChecked)
             if (isChecked) {
-                brandList.add("Giulia")
+                modelList.add("Giulia")
             } else {
-                brandList.remove("Giulia")
+                modelList.remove("Giulia")
             }
         }
 
         modelCClass.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("C Class", isChecked)
             if (isChecked) {
-                brandList.add("C Class")
+                modelList.add("C Class")
             } else {
-                brandList.remove("C Class")
+                modelList.remove("C Class")
             }
         }
 
         model3.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Model 3", isChecked)
             if (isChecked) {
-                brandList.add("Model 3")
+                modelList.add("Model 3")
             } else {
-                brandList.remove("Model 3")
+                modelList.remove("Model 3")
             }
         }
 
         modelTaycan.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Taycan", isChecked)
             if (isChecked) {
-                brandList.add("Taycan")
+                modelList.add("Taycan")
             } else {
-                brandList.remove("Taycan")
+                modelList.remove("Taycan")
             }
         }
 
         modelElantra.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Elantra", isChecked)
             if (isChecked) {
-                brandList.add("Elantra")
+                modelList.add("Elantra")
             } else {
-                brandList.remove("Elantra")
+                modelList.remove("Elantra")
             }
         }
 
         modelES.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("ES", isChecked)
             if (isChecked) {
-                brandList.add("ES")
+                modelList.add("ES")
             } else {
-                brandList.remove("ES")
+                modelList.remove("ES")
             }
         }
 
         modelS.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Model S", isChecked)
             if (isChecked) {
-                brandList.add("Model S")
+                modelList.add("Model S")
             } else {
-                brandList.remove("Model S")
+                modelList.remove("Model S")
             }
         }
 
         modelS60.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("S60", isChecked)
             if (isChecked) {
-                brandList.add("S60")
+                modelList.add("S60")
             } else {
-                brandList.remove("S60")
+                modelList.remove("S60")
             }
         }
 
         modelA4.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("A4", isChecked)
             if (isChecked) {
-                brandList.add("A4")
+                modelList.add("A4")
             } else {
-                brandList.remove("A4")
+                modelList.remove("A4")
             }
         }
 
         modelEClass.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("E Class", isChecked)
             if (isChecked) {
-                brandList.add("E Class")
+                modelList.add("E Class")
             } else {
-                brandList.remove("E Class")
+                modelList.remove("E Class")
             }
         }
 
         modelTransporterPanelvan.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Transporter Panelvan", isChecked)
             if (isChecked) {
-                brandList.add("Transporter Panelvan")
+                modelList.add("Transporter Panelvan")
             } else {
-                brandList.remove("Transporter Panelvan")
+                modelList.remove("Transporter Panelvan")
             }
         }
 
         modelScudoPanelvan.setOnCheckedChangeListener { buttonView, isChecked ->
             handleCheckboxSelection("Scudo Panelvan", isChecked)
             if (isChecked) {
-                brandList.add("Scudo Panelvan")
+                modelList.add("Scudo Panelvan")
             } else {
-                brandList.remove("Scudo Panelvan")
+                modelList.remove("Scudo Panelvan")
             }
         }
+        //TODO-------------------------------------------------------- BODYTYPE
+
+        bodyTypeHatchback.setOnCheckedChangeListener { buttonView, isChecked ->
+            handleCheckboxSelection("Hatchback", isChecked)
+            if (isChecked) {
+                bodyTypeList.add("Hatchback")
+            } else {
+                bodyTypeList.remove("Hatchback")
+            }
+        }
+        bodyTypeVan.setOnCheckedChangeListener { buttonView, isChecked ->
+            handleCheckboxSelection("Van", isChecked)
+            if (isChecked) {
+                bodyTypeList.add("Van")
+            } else {
+                bodyTypeList.remove("Van")
+            }
+        }
+        bodyTypeSedan.setOnCheckedChangeListener { buttonView, isChecked ->
+            handleCheckboxSelection("Sedan", isChecked)
+            if (isChecked) {
+                bodyTypeList.add("Sedan")
+            } else {
+                bodyTypeList.remove("Sedan")
+            }
+        }
+        bodyTypeLimousine.setOnCheckedChangeListener { buttonView, isChecked ->
+            handleCheckboxSelection("Limousine", isChecked)
+            if (isChecked) {
+                bodyTypeList.add("Limousine")
+            } else {
+                bodyTypeList.remove("Limousine")
+            }
+        }
+//TODO--------------------------------------------------------enginsrc
+        engineSrcDiesel.setOnCheckedChangeListener { buttonView, isChecked ->
+            handleCheckboxSelection("Diesel", isChecked)
+            if (isChecked) {
+                engineSrcList.add("Diesel")
+            } else {
+                engineSrcList.remove("Diesel")
+            }
+        }
+
+        engineSrcElectric.setOnCheckedChangeListener { buttonView, isChecked ->
+            handleCheckboxSelection("Electric", isChecked)
+            if (isChecked) {
+                engineSrcList.add("Electric")
+            } else {
+                engineSrcList.remove("Electric")
+            }
+        }
+
+        engineSrcHybrid.setOnCheckedChangeListener { buttonView, isChecked ->
+            handleCheckboxSelection("Hybrid", isChecked)
+            if (isChecked) {
+                engineSrcList.add("Hybrid")
+            } else {
+                engineSrcList.remove("Hybrid")
+            }
+        }
+
+        engineSrcPetrol.setOnCheckedChangeListener { buttonView, isChecked ->
+            handleCheckboxSelection("Petrol", isChecked)
+            if (isChecked) {
+                engineSrcList.add("Petrol")
+            } else {
+                engineSrcList.remove("Petrol")
+            }
+        }
+
+        transmissionManuel.setOnCheckedChangeListener { buttonView, isChecked ->
+            handleCheckboxSelection("Manuel", isChecked)
+            if (isChecked) {
+                transmissionList.add("Manuel")
+            } else {
+                transmissionList.remove("Manuel")
+            }
+        }
+
+
+        transmissionAutomatic.setOnCheckedChangeListener { buttonView, isChecked ->
+            handleCheckboxSelection("Automatic", isChecked)
+            if (isChecked) {
+                transmissionList.add("Automatic")
+            } else {
+                transmissionList.remove("Automatic")
+            }
+        }
+
+        modelYear2021.setOnCheckedChangeListener { buttonView, isChecked ->
+            handleCheckboxSelection("2021", isChecked)
+            if (isChecked) {
+                modelYearList.add("2021")
+            } else {
+                modelYearList.remove("2021")
+            }
+        }
+        modelYear2022.setOnCheckedChangeListener { buttonView, isChecked ->
+            handleCheckboxSelection("2022", isChecked)
+            if (isChecked) {
+                modelYearList.add("2022")
+            } else {
+                modelYearList.remove("2022")
+            }
+        }
+        modelYear2023.setOnCheckedChangeListener { buttonView, isChecked ->
+            handleCheckboxSelection("2023", isChecked)
+            if (isChecked) {
+                modelYearList.add("2023")
+            } else {
+                modelYearList.remove("2023")
+            }
+        }
+
+
+
 //TODO--------------------------------------------------------
         okayButton.setOnClickListener{
             val intent = Intent(this, ResultActivity::class.java)
             intent.putStringArrayListExtra("colorList", ArrayList(colorList))
             intent.putStringArrayListExtra("brandList", ArrayList(brandList))
+            intent.putStringArrayListExtra("modelList", ArrayList(modelList))
+            intent.putStringArrayListExtra("bodyTypeList", ArrayList(bodyTypeList))
+            intent.putStringArrayListExtra("engineSrcList", ArrayList(engineSrcList))
+            intent.putStringArrayListExtra("transmissionList", ArrayList(transmissionList))
+            intent.putStringArrayListExtra("modelYearList", ArrayList(modelYearList))
             intent.putExtra("workername",infoWorker )
             this.startActivity(intent)
         }

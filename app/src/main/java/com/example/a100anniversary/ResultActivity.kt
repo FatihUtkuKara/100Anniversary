@@ -35,9 +35,23 @@ class ResultActivity : AppCompatActivity() {
 
         val colorList = intent.getStringArrayListExtra("colorList")
         val brandList = intent.getStringArrayListExtra("brandList")
+        val modelList = intent.getStringArrayListExtra("modelList")
+        val bodyTypeList = intent.getStringArrayListExtra("bodyTypeList")
+        val engineSrcList = intent.getStringArrayListExtra("engineSrcList")
+        val transmissionList = intent.getStringArrayListExtra("transmissionList")
+        val modelYearList = intent.getStringArrayListExtra("modelYearList")
+
+
 
         Log.d("ResultActivity", "colorList: $colorList")
         Log.d("ResultActivity", "brandList: $brandList")
+        Log.d("ResultActivity", "modelList: $modelList")
+        Log.d("ResultActivity", "bodyTypeList: $bodyTypeList")
+        Log.d("ResultActivity", "engineSrcList: $engineSrcList")
+        Log.d("ResultActivity", "transmissionList: $transmissionList")
+        Log.d("ResultActivity", "modelYearList: $modelYearList")
+
+
         rv.layoutManager = StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL)
 
         val c1 = Results("Toyota", "Corolla Hatchback", "Hatchback", 1460000, 2023, "Hybrid", "Automatic", "Blue", 3500, 85.5)
@@ -469,6 +483,33 @@ class ResultActivity : AppCompatActivity() {
             }
         }
 
+        if(!modelList.isNullOrEmpty()){
+
+            filteredList = filteredList.filter { results ->  modelList.contains(results.model)
+
+            }
+        }
+
+        if(!bodyTypeList.isNullOrEmpty()){
+
+            filteredList = filteredList.filter { results ->  bodyTypeList.contains(results.bodyType)
+
+            }
+        }
+
+        if(!engineSrcList.isNullOrEmpty()){
+
+            filteredList = filteredList.filter { results ->  engineSrcList.contains(results.engineSrc)
+
+            }
+        }
+
+        if(!modelYearList.isNullOrEmpty()){
+
+            filteredList = filteredList.filter { results ->  modelYearList.contains(results.modelYear.toString())
+
+            }
+        }
         adapter = ResultRvAdapter(this,filteredList,infoWorker)
 
         rv.adapter = adapter

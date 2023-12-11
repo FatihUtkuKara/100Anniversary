@@ -40,6 +40,9 @@ class MainActivity : AppCompatActivity() {
         //TODO Filtreleme
         //TODO Sıralama
         //TODO animasyonlar
+        //TODO info activity design
+        //TODO info activity sayı gösterme(3+4 olayı)
+        //Employee sonu toast message
 
           initialize()
           sortedList = ""
