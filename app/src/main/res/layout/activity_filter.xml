@@ -1438,6 +1438,130 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="1340dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+                <TextView
+                    android:id="@+id/odometer"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="142dp"
+                    android:gravity="center"
+                    android:text="Odometer"
+                    android:textColor="#ffc107"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="1380dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+
+                <EditText
+                    android:id="@+id/minOdometer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:hint="Minimum Odometer"
+                    android:textColorHint="#ffffff"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/maxOdometer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:hint="Maximum Odometer"
+                    android:textColorHint="#ffffff"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="1420dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+                <TextView
+                    android:id="@+id/safety"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="142dp"
+                    android:gravity="center"
+                    android:text="Safety"
+                    android:textColor="#ffc107"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="1460dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+
+                <EditText
+                    android:id="@+id/minSafety"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:hint="Minimum Safety"
+                    android:textColorHint="#ffffff"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/maxSafety"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:hint="Maximum Safety"
+                    android:textColorHint="#ffffff"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

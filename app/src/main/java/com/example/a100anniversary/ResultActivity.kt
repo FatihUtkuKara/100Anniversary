@@ -42,8 +42,10 @@ class ResultActivity : AppCompatActivity() {
         val modelYearList = intent.getStringArrayListExtra("modelYearList")
         var minPriceInt = intent.getIntExtra("minPrice",0)
         var maxPriceInt = intent.getIntExtra("maxPrice",0)
-
-
+        var maxOdometerInt = intent.getIntExtra("maxOdometer",0)
+        var minOdometerInt = intent.getIntExtra("minOdometer",0)
+        var maxSafetyInt = intent.getIntExtra("maxSafety",0)
+        var minSafetyInt = intent.getIntExtra("minSafety",0)
 
         Log.d("ResultActivity", "colorList: $colorList")
         Log.d("ResultActivity", "brandList: $brandList")
@@ -514,14 +516,28 @@ class ResultActivity : AppCompatActivity() {
             }
         }
 
-        if(minPriceInt != 0 && maxPriceInt != 0){
+        if(minPriceInt != 0 || maxPriceInt != 0){
 
             filteredList = filteredList.filter { results ->
                 results.price in minPriceInt..maxPriceInt
             }
 
         }
-        adapter = ResultRvAdapter(this,filteredList,infoWorker)
+        if(minOdometerInt != 0 || maxOdometerInt != 0){
+
+            filteredList = filteredList.filter { results ->
+                results.odometer in minOdometerInt..maxOdometerInt
+            }
+
+        }
+        if(minSafetyInt != 0 || maxSafetyInt != 0){
+
+            filteredList = filteredList.filter { results ->
+                results.safety.toInt() in minSafetyInt..maxSafetyInt
+            }
+        }
+
+            adapter = ResultRvAdapter(this,filteredList,infoWorker)
 
         rv.adapter = adapter
 

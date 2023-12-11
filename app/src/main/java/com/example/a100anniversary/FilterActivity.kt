@@ -107,7 +107,14 @@ class FilterActivity : AppCompatActivity() {
         val maxPrice : EditText = findViewById(R.id.maxPrice)
         var minPriceInt : Int = 0
         var maxPriceInt : Int = 0
-
+        val minOdometer : EditText =findViewById(R.id.minOdometer)
+        val maxOdometer : EditText =findViewById(R.id.maxOdometer)
+        var minOdometerInt : Int = 0
+        var maxOdometerInt : Int = 0
+        val minSafety : EditText =findViewById(R.id.minSafety)
+        val maxSafety : EditText =findViewById(R.id.maxSafety)
+        var minSafetyInt : Int = 0
+        var maxSafetyInt : Int = 0
 
 
 
@@ -820,6 +827,18 @@ class FilterActivity : AppCompatActivity() {
             if(!minPrice.text.toString().isNullOrEmpty()){
                 minPriceInt = Integer.parseInt(minPrice.text.toString())
             }
+            if(!maxOdometer.text.toString().isNullOrEmpty()){
+                maxOdometerInt = Integer.parseInt(maxOdometer.text.toString())
+            }
+            if(!minOdometer.text.toString().isNullOrEmpty()){
+                minOdometerInt = Integer.parseInt(minOdometer.text.toString())
+            }
+            if(!maxSafety.text.toString().isNullOrEmpty()){
+                maxSafetyInt = Integer.parseInt(maxSafety.text.toString())
+            }
+            if(!minSafety.text.toString().isNullOrEmpty()){
+                minSafetyInt = Integer.parseInt(minSafety.text.toString())
+            }
             val intent = Intent(this, ResultActivity::class.java)
             intent.putStringArrayListExtra("colorList", ArrayList(colorList))
             intent.putStringArrayListExtra("brandList", ArrayList(brandList))
@@ -830,7 +849,10 @@ class FilterActivity : AppCompatActivity() {
             intent.putStringArrayListExtra("modelYearList", ArrayList(modelYearList))
             intent.putExtra("minPrice", minPriceInt)
             intent.putExtra("maxPrice", maxPriceInt)
-
+            intent.putExtra("minOdometer", minOdometerInt)
+            intent.putExtra("maxOdometer", maxOdometerInt)
+            intent.putExtra("minSafety", minSafetyInt)
+            intent.putExtra("maxSafety", maxSafetyInt)
             intent.putExtra("workername",infoWorker )
             this.startActivity(intent)
         }
