@@ -105,7 +105,6 @@ private fun onOptionSelected(selectedOption: Int , answer : String) {
     }
 
     val pointsMap = mapOf(
-
         "Brand" to brandPoint,
         "Model" to modelPoint,
         "Body Type" to bodyTypePoint,
@@ -119,27 +118,34 @@ private fun onOptionSelected(selectedOption: Int , answer : String) {
 
     val sortedPoints = pointsMap.entries
         .sortedByDescending { it.value }
-    Log.e("Sıralanmış Puanlar:", sortedPoints.joinToString("\n") { "${it.key}" })
 
+    Log.e("Sıralanmış Puanlar:", sortedPoints.joinToString("\n") { "${it.key}: ${it.value}" })
+
+    val updatedPointsString = sortedPoints
+        .mapIndexed { index, entry ->
+            val points = 14 - index.coerceAtLeast(0)
+            "${entry.key}: $points"
+        }
+        .joinToString("\n")
 
     currentIndex2++
     if (currentIndex2 == 8) {
         currentIndex++
         currentIndex2 = currentIndex
-
     }
-
 
     if (currentIndex < values.size - 1) {
         showQuestion()
     } else {
-
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
-        editor.putString("sortedPoints", sortedPoints.joinToString("\n") { "${it.key}" })
+
+
+        editor.putString("sortedPoints", updatedPointsString)
+
         editor.apply()
+
         val intent = Intent(this, MainActivity::class.java)
-        intent.putExtra("sortedList", sortedPoints.joinToString("\n") { "${it.key}: ${it.value}" })
         this.startActivity(intent)
     }
 }

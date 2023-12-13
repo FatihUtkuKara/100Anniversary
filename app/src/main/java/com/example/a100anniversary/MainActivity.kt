@@ -37,10 +37,10 @@ class MainActivity : AppCompatActivity() {
         //sıralama
         //bütün infolar resultta görünecek
         //TODO card view tasarım
-        //TODO Filtreleme
+        //Filtreleme
         //TODO Sıralama
         //TODO animasyonlar
-        //TODO info activity design
+        //info activity design
         //TODO info activity sayı gösterme(3+4 olayı)
         //Employee sonu toast message
 

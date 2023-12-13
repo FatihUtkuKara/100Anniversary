@@ -537,6 +537,17 @@ class ResultActivity : AppCompatActivity() {
             }
         }
 
+       /* filteredList = filteredList.sortedWith(Comparator { result1, result2 ->
+            val colorOrder = mapOf("Blue" to 1, "Red" to 2, "Yellow" to 3,"Orange" to 4,"White" to 5, "Silver" to 6, "Black" to 7 ,"Grey" to 8)
+
+            val order1 = colorOrder[result1.color] ?: Int.MAX_VALUE
+            val order2 = colorOrder[result2.color] ?: Int.MAX_VALUE
+
+            order1.compareTo(order2)
+        }) */
+
+        filteredList = filteredList.sortedByDescending { it.odometer }
+
             adapter = ResultRvAdapter(this,filteredList,infoWorker)
 
         rv.adapter = adapter

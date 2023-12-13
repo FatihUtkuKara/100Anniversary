@@ -30,10 +30,6 @@ class EmployeeFirstActivity : AppCompatActivity() {
         }
 
 
-        // blue collar body type sadece hatchback ve van filtrelenmiş şekilde çıkıyor
-        //white body type hatchback ve sedan
-        //executive sedan ve limo
-
         blueButton.setOnClickListener {
             val intent = Intent(this, InformationActivity::class.java)
             intent.putExtra("workername","blue" )

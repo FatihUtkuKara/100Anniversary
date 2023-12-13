@@ -22,26 +22,36 @@
             android:layout_height="50dp"
             android:layout_marginStart="156dp"
             android:layout_marginEnd="155dp"
-            android:layout_marginBottom="165dp"
+            android:layout_marginBottom="108dp"
             android:background="@drawable/button_background"
             android:gravity="center"
             android:text="Continue"
             android:textColor="#113946"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:layout_width="308dp"
+            android:layout_height="404dp"
+            android:layout_marginTop="110dp"
+            android:background="@drawable/rounded_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/sortedList"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
-            android:background="@drawable/background_gradient_2"
+            android:layout_marginTop="196dp"
             android:gravity="center"
             android:text="TextView"
             android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
