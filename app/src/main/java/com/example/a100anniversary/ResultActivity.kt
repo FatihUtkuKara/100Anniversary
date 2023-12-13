@@ -13,6 +13,7 @@ class ResultActivity : AppCompatActivity() {
     private lateinit var filteredList : List<Results>
     private lateinit var secondFilteredList :List<Results>
     private lateinit var filterButton : ImageView
+    private lateinit var sortButton : ImageView
     private lateinit var adapter: ResultRvAdapter
     private lateinit var infoWorker : String
     private lateinit var rv: RecyclerView
@@ -22,7 +23,7 @@ class ResultActivity : AppCompatActivity() {
 
         rv = findViewById(R.id.rv)
         filterButton= findViewById(R.id.filterButton)
-
+        sortButton = findViewById(R.id.sortButton)
         if (intent.hasExtra("workername")) {
             infoWorker = intent.getStringExtra("workername")!!
         }
@@ -30,6 +31,11 @@ class ResultActivity : AppCompatActivity() {
         filterButton.setOnClickListener{
             val intent = Intent(this, FilterActivity::class.java)
             intent.putExtra("workername",infoWorker )
+            this.startActivity(intent)
+        }
+
+        sortButton.setOnClickListener{
+            val intent = Intent(this, SortActivity::class.java)
             this.startActivity(intent)
         }
 

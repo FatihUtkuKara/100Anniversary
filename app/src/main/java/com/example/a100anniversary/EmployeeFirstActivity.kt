@@ -54,9 +54,5 @@ class EmployeeFirstActivity : AppCompatActivity() {
     }
 
 
-   /* override fun onBackPressed() {
-        // Geri butonuna basıldığında aşağıdan yukarıya animasyon eklemek için
-        overridePendingTransition(R.anim.no_animation, R.anim.slide_out_down)
-        super.onBackPressed()
-    } */
+
 }
