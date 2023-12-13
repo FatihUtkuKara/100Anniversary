@@ -41,7 +41,7 @@ class SortActivity : AppCompatActivity() {
             handleCheckboxSelection("colorIncrease", isChecked)
             if (isChecked) {
                 val intent = Intent(this, ResultActivity::class.java)
-                intent.putExtra("colorIncrease", "colorIncrease")
+                intent.putExtra("sortInfo", "colorIncrease")
                 intent.putExtra("workername",infoWorker )
                 this.startActivity(intent)
 
@@ -51,7 +51,7 @@ class SortActivity : AppCompatActivity() {
             handleCheckboxSelection("colorDecrease", isChecked)
             if (isChecked) {
                 val intent = Intent(this, ResultActivity::class.java)
-                intent.putExtra("colorDecrease", "colorDecrease")
+                intent.putExtra("sortInfo", "colorDecrease")
                 intent.putExtra("workername",infoWorker )
                 this.startActivity(intent)
 
@@ -62,7 +62,7 @@ class SortActivity : AppCompatActivity() {
             if (isChecked) {
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra("workername",infoWorker )
-                intent.putExtra("brandIncrease", "brandIncrease")
+                intent.putExtra("sortInfo", "brandIncrease")
                 this.startActivity(intent)
 
             }
@@ -72,7 +72,7 @@ class SortActivity : AppCompatActivity() {
             if (isChecked) {
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra("workername",infoWorker )
-                intent.putExtra("brandDecrease", "brandDecrease")
+                intent.putExtra("sortInfo", "brandDecrease")
                 this.startActivity(intent)
 
             }
@@ -82,7 +82,7 @@ class SortActivity : AppCompatActivity() {
             if (isChecked) {
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra("workername",infoWorker )
-                intent.putExtra("bodyTypeDecrease", "bodyTypeDecrease")
+                intent.putExtra("sortInfo", "bodyTypeDecrease")
                 this.startActivity(intent)
 
             }
@@ -92,7 +92,7 @@ class SortActivity : AppCompatActivity() {
             if (isChecked) {
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra("workername",infoWorker )
-                intent.putExtra("bodyTypeIncrease", "bodyTypeIncrease")
+                intent.putExtra("sortInfo", "bodyTypeIncrease")
                 this.startActivity(intent)
 
             }
@@ -102,7 +102,7 @@ class SortActivity : AppCompatActivity() {
             if (isChecked) {
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra("workername",infoWorker )
-                intent.putExtra("engineDecrease", "engineDecrease")
+                intent.putExtra("sortInfo", "engineDecrease")
                 this.startActivity(intent)
 
             }
@@ -112,7 +112,7 @@ class SortActivity : AppCompatActivity() {
             if (isChecked) {
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra("workername",infoWorker )
-                intent.putExtra("engineIncrease", "engineIncrease")
+                intent.putExtra("sortInfo", "engineIncrease")
                 this.startActivity(intent)
 
             }
@@ -122,7 +122,7 @@ class SortActivity : AppCompatActivity() {
             if (isChecked) {
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra("workername",infoWorker )
-                intent.putExtra("modelDecrease", "modelDecrease")
+                intent.putExtra("sortInfo", "modelDecrease")
                 this.startActivity(intent)
 
             }
@@ -132,7 +132,7 @@ class SortActivity : AppCompatActivity() {
             if (isChecked) {
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra("workername",infoWorker )
-                intent.putExtra("modelIncrease", "modelIncrease")
+                intent.putExtra("sortInfo", "modelIncrease")
                 this.startActivity(intent)
 
             }
@@ -142,7 +142,7 @@ class SortActivity : AppCompatActivity() {
             if (isChecked) {
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra("workername",infoWorker )
-                intent.putExtra("odometerDecrease", "odometerDecrease")
+                intent.putExtra("sortInfo", "odometerDecrease")
                 this.startActivity(intent)
 
             }
@@ -152,7 +152,7 @@ class SortActivity : AppCompatActivity() {
             if (isChecked) {
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra("workername",infoWorker )
-                intent.putExtra("odometerIncrease", "odometerIncrease")
+                intent.putExtra("sortInfo", "odometerIncrease")
                 this.startActivity(intent)
 
             }
@@ -162,7 +162,7 @@ class SortActivity : AppCompatActivity() {
             if (isChecked) {
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra("workername",infoWorker )
-                intent.putExtra("transmissionDecrease", "transmissionDecrease")
+                intent.putExtra("sortInfo", "transmissionDecrease")
                 this.startActivity(intent)
 
             }
@@ -172,7 +172,7 @@ class SortActivity : AppCompatActivity() {
             if (isChecked) {
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra("workername",infoWorker )
-                intent.putExtra("transmissionIncrease", "transmissionIncrease")
+                intent.putExtra("sortInfo", "transmissionIncrease")
                 this.startActivity(intent)
 
             }
@@ -182,7 +182,7 @@ class SortActivity : AppCompatActivity() {
             if (isChecked) {
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra("workername",infoWorker )
-                intent.putExtra("priceDecrease", "priceDecrease")
+                intent.putExtra("sortInfo", "priceDecrease")
                 this.startActivity(intent)
 
             }
@@ -192,7 +192,7 @@ class SortActivity : AppCompatActivity() {
             if (isChecked) {
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra("workername",infoWorker )
-                intent.putExtra("priceIncrease", "priceIncrease")
+                intent.putExtra("sortInfo", "priceIncrease")
                 this.startActivity(intent)
 
             }
@@ -202,7 +202,7 @@ class SortActivity : AppCompatActivity() {
             if (isChecked) {
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra("workername",infoWorker )
-                intent.putExtra("safetyDecrease", "safetyDecrease")
+                intent.putExtra("sortInfo", "safetyDecrease")
                 this.startActivity(intent)
 
             }
@@ -212,7 +212,7 @@ class SortActivity : AppCompatActivity() {
             if (isChecked) {
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra("workername",infoWorker )
-                intent.putExtra("safetyIncrease", "safetyIncrease")
+                intent.putExtra("sortInfo", "safetyIncrease")
                 this.startActivity(intent)
 
             }
@@ -222,7 +222,7 @@ class SortActivity : AppCompatActivity() {
             if (isChecked) {
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra("workername",infoWorker )
-                intent.putExtra("modelYearDecrease", "modelYearDecrease")
+                intent.putExtra("sortInfo", "modelYearDecrease")
                 this.startActivity(intent)
 
             }
@@ -232,7 +232,7 @@ class SortActivity : AppCompatActivity() {
             if (isChecked) {
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra("workername",infoWorker )
-                intent.putExtra("modelYearIncrease", "modelYearIncrease")
+                intent.putExtra("sortInfo", "modelYearIncrease")
                 this.startActivity(intent)
 
             }

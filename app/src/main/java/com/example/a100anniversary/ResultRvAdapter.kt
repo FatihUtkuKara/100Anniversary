@@ -1,7 +1,6 @@
 package com.example.a100anniversary
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +13,7 @@ class ResultRvAdapter (private val mContext: Context, private val resultList:Lis
     inner class CardViewDesignObjectHolder(view: View): RecyclerView.ViewHolder(view) {
         var CardView: CardView
         var brand : TextView
+        var carImage : ImageView
         var colorr : TextView
         var engineSrc : TextView
         var price : TextView
@@ -26,6 +26,7 @@ class ResultRvAdapter (private val mContext: Context, private val resultList:Lis
         var odometer : TextView
 
         init {
+            carImage = view.findViewById(R.id.carImage)
             CardView = view.findViewById(R.id.CardView)
             brand = view.findViewById(R.id.brand)
             colorr = view.findViewById(R.id.color)
@@ -62,6 +63,17 @@ class ResultRvAdapter (private val mContext: Context, private val resultList:Lis
     override fun onBindViewHolder(holder: CardViewDesignObjectHolder, position: Int) {
         val results = resultList[position]
 
+        val modelName = results.model.toLowerCase()
+        val drawableResId = mContext.resources.getIdentifier(modelName, "drawable", mContext.packageName)
+        val defaultDrawableResId = R.drawable.btn_background
+
+
+        if(drawableResId != 0x134){
+
+
+        holder.carImage.setImageResource(if (drawableResId != 0) drawableResId else defaultDrawableResId)
+        }
+        //holder.carImage.setBackgroundResource(R.drawable.bmw)
                 holder.brand.setText("Brand\n"+results.brand)
                 holder.modelYear.setText("Model Year\n"+results.modelYear.toString())
                 holder.colorr.setText("Color\n"+results.color)

@@ -41,6 +41,7 @@ class ResultActivity : AppCompatActivity() {
             this.startActivity(intent)
         }
 
+        val sortInfo = intent.getStringExtra("sortInfo")
         val colorList = intent.getStringArrayListExtra("colorList")
         val brandList = intent.getStringArrayListExtra("brandList")
         val modelList = intent.getStringArrayListExtra("modelList")
@@ -545,6 +546,102 @@ class ResultActivity : AppCompatActivity() {
             }
         }
 
+        if (sortInfo.equals("colorIncrease")){
+            filteredList = filteredList.sortedWith(Comparator { result1, result2 ->
+                val colorOrder = mapOf("Blue" to 1, "Red" to 2, "Yellow" to 3,"Orange" to 4,"White" to 5, "Silver" to 6, "Black" to 7 ,"Grey" to 8)
+
+                val order1 = colorOrder[result1.color] ?: Int.MAX_VALUE
+                val order2 = colorOrder[result2.color] ?: Int.MAX_VALUE
+
+                order1.compareTo(order2)})
+
+        }
+        if (sortInfo.equals("colorDecrease")){
+            filteredList = filteredList.sortedWith(Comparator { result1, result2 ->
+                val colorOrder = mapOf("Grey" to 1, "Black" to 2, "Silver" to 3,"White" to 4,"Orange" to 5, "Yellow" to 6, "Red" to 7 ,"Blue" to 8)
+
+                val order1 = colorOrder[result1.color] ?: Int.MAX_VALUE
+                val order2 = colorOrder[result2.color] ?: Int.MAX_VALUE
+
+                order1.compareTo(order2)})
+        }
+        if (sortInfo.equals("brandIncrease")){
+            filteredList = filteredList.sortedWith(Comparator { result1, result2 ->
+                val brandOrder = mapOf("Porsche" to 1, "Mercedes-Benz" to 2, "Tesla" to 3,"Lexus" to 4,"Mini" to 5, "Volvo" to 6, "Audi" to 7 ,"Cupra" to 8,"BMW" to 9,"Alfa Romeo" to 10,"Volkswagen" to 11,"" to 12,"Smart" to 13,"Opel" to 14,"Citroen" to 15,"Peugeot" to 16,"Ford" to 17,"Nissan" to 20,"Renault" to 19,"Hyundai" to 20,"Kia" to 21,"Toyota" to 22,"Fiat" to 23)
+
+                val order1 = brandOrder[result1.brand] ?: Int.MAX_VALUE
+                val order2 = brandOrder[result2.brand] ?: Int.MAX_VALUE
+
+                order1.compareTo(order2)})
+
+        }
+        if (sortInfo.equals("brandDecrease")){
+            filteredList = filteredList.sortedWith(Comparator { result1, result2 ->
+                val brandOrder = mapOf(
+                    "Porsche" to 1, "Mercedes-Benz" to 2, "Tesla" to 3, "Lexus" to 4,
+                    "Mini" to 5, "Volvo" to 6, "Audi" to 7, "Cupra" to 8, "BMW" to 9,
+                    "Alfa Romeo" to 10, "Volkswagen" to 11, "" to 12, "Smart" to 13,
+                    "Opel" to 14, "Citroen" to 15, "Peugeot" to 16, "Ford" to 17,
+                    "Nissan" to 20, "Renault" to 19, "Hyundai" to 20, "Kia" to 21,
+                    "Toyota" to 22, "Fiat" to 23
+                )
+
+                val order1 = brandOrder[result1.brand] ?: Int.MAX_VALUE
+                val order2 = brandOrder[result2.brand] ?: Int.MAX_VALUE
+
+                order1.compareTo(order2)
+            }).reversed()
+
+        }
+        if (sortInfo.equals("bodyTypeDecrease")){
+
+        }
+        if (sortInfo.equals("bodyTypeIncrease")){
+
+        }
+        if (sortInfo.equals("engineDecrease")){
+
+        }
+        if (sortInfo.equals("engineIncrease")){
+
+        }
+        if (sortInfo.equals("modelDecrease")){
+
+        }
+        if (sortInfo.equals("modelIncrease")){
+
+        }
+        if (sortInfo.equals("odometerDecrease")){
+
+        }
+        if (sortInfo.equals("odometerIncrease")){
+
+        }
+        if (sortInfo.equals("transmissionDecrease")){
+
+        }
+        if (sortInfo.equals("transmissionIncrease")){
+
+        }
+        if (sortInfo.equals("priceDecrease")){
+
+        }
+        if (sortInfo.equals("priceIncrease")){
+
+        }
+        if (sortInfo.equals("safetyDecrease")){
+
+        }
+        if (sortInfo.equals("safetyIncrease")){
+
+        }
+        if (sortInfo.equals("modelYearDecrease")){
+
+        }
+        if (sortInfo.equals("modelYearIncrease")){
+
+        }
+
        /* filteredList = filteredList.sortedWith(Comparator { result1, result2 ->
             val colorOrder = mapOf("Blue" to 1, "Red" to 2, "Yellow" to 3,"Orange" to 4,"White" to 5, "Silver" to 6, "Black" to 7 ,"Grey" to 8)
 
@@ -554,7 +651,7 @@ class ResultActivity : AppCompatActivity() {
             order1.compareTo(order2)
         }) */
 
-        filteredList = filteredList.sortedByDescending { it.odometer }
+        //filteredList = filteredList.sortedByDescending { it.odometer }
 
             adapter = ResultRvAdapter(this,filteredList,infoWorker)
 
