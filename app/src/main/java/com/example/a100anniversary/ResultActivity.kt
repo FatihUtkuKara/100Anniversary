@@ -21,6 +21,7 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
+        infoWorker =""
         rv = findViewById(R.id.rv)
         filterButton= findViewById(R.id.filterButton)
         sortButton = findViewById(R.id.sortButton)
@@ -36,6 +37,7 @@ class ResultActivity : AppCompatActivity() {
 
         sortButton.setOnClickListener{
             val intent = Intent(this, SortActivity::class.java)
+            intent.putExtra("workername",infoWorker )
             this.startActivity(intent)
         }
 

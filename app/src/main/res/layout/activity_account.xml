@@ -35,6 +35,9 @@
             android:layout_marginBottom="115dp"
             android:ems="10"
             android:gravity="center"
+            android:textColor="@color/white"
+            android:textColorHint="#ffffff"
+
             android:inputType="text"
             android:text="E-mail"
             app:layout_constraintBottom_toTopOf="@+id/editTextNumberPassword"
@@ -51,6 +54,9 @@
             android:layout_marginEnd="102dp"
             android:text="Password"
             android:ems="10"
+            android:textColor="@color/white"
+
+            android:textColorHint="#ffffff"
             android:gravity="center"
             android:inputType="numberPassword"
             app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +72,9 @@
             android:layout_marginEnd="130dp"
             android:background="@drawable/button_background"
             android:gravity="center"
+
             android:text="Submit"
+
             android:textColor="#113946"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

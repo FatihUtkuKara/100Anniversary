@@ -62,16 +62,16 @@ class ResultRvAdapter (private val mContext: Context, private val resultList:Lis
     override fun onBindViewHolder(holder: CardViewDesignObjectHolder, position: Int) {
         val results = resultList[position]
 
-                holder.brand.setText(results.brand)
-                holder.modelYear.setText(results.modelYear.toString())
-                holder.colorr.setText(results.color)
-                holder.price.setText(results.price.toString())
-                holder.transmission.setText(results.transmission)
-                holder.modell.setText(results.model)
-                holder.engineSrc.setText(results.engineSrc)
-                holder.safety.setText(results.safety.toString())
-                holder.bodyType.setText(results.bodyType)
-                holder.odometer.setText(results.odometer.toString())
+                holder.brand.setText("Brand\n"+results.brand)
+                holder.modelYear.setText("Model Year\n"+results.modelYear.toString())
+                holder.colorr.setText("Color\n"+results.color)
+                holder.price.setText("Price\n"+results.price.toString())
+                holder.transmission.setText("Transmission\n"+results.transmission)
+                holder.modell.setText("Model\n"+results.model)
+                holder.engineSrc.setText("Engine Source\n"+results.engineSrc)
+                holder.safety.setText("Safety\n"+results.safety.toString())
+                holder.bodyType.setText("Body Type\n"+results.bodyType)
+                holder.odometer.setText("Odometer\n"+results.odometer.toString())
 
 
 

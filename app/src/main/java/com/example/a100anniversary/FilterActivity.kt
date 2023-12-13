@@ -858,7 +858,6 @@ class FilterActivity : AppCompatActivity() {
         }
 
 
-
         }
 
 
