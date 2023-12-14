@@ -7,11 +7,12 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
+import kotlin.concurrent.thread
 
 class EmployerFirstActivity : AppCompatActivity() {
     private lateinit var button1: TextView
     private lateinit var button2: TextView
-
+    private var answerCounter = 0
     private val values = listOf(
         "Brand",
         "Model",
@@ -23,7 +24,7 @@ class EmployerFirstActivity : AppCompatActivity() {
         "Odometer",
         "Safety"
     )
-    private var answerCounter = 0
+
     private var brandPoint = 0
     private var modelPoint = 0
     private var bodyTypePoint = 0
@@ -46,7 +47,7 @@ class EmployerFirstActivity : AppCompatActivity() {
         button1 = findViewById(R.id.item1)
         button2 = findViewById(R.id.item2)
 
-
+        // SharedPreferences kullanımını buraya ekleyin
         loadPreviousPoints()
         loadCounter()
         showQuestion()
@@ -60,45 +61,39 @@ class EmployerFirstActivity : AppCompatActivity() {
 
         brandPoint = sharedPreferences.getInt("brandPoint", 0)
         modelPoint = sharedPreferences.getInt("modelPoint", 0)
-        // ... Diğer kategoriler için aynı şekilde devam edebilirsiniz
+        bodyTypePoint = sharedPreferences.getInt("bodyTypePoint", 0)
+        modelYearPoint = sharedPreferences.getInt("modelYearPoint", 0)
+        odometerPoint = sharedPreferences.getInt("odometerPoint", 0)
+        transmissionPoint = sharedPreferences.getInt("transmissionPoint", 0)
+        colorPoint = sharedPreferences.getInt("colorPoint", 0)
+        safetyPoint = sharedPreferences.getInt("safetyPoint", 0)
+        engineSourcePoint = sharedPreferences.getInt("engineSourcePoint", 0)
+
     }
 
-    private fun updateAndSavePoints() {
+    private fun updateAndSavePoints(sortedPoints: List<Map.Entry<String, Int>>) {
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-
         val editor = sharedPreferences.edit()
+        sharedPreferences.edit().apply {
 
-        val pointsMap = mapOf(
-            "Brand" to brandPoint,
-            "Model" to modelPoint,
-            "Body Type" to bodyTypePoint,
-            "Model Year" to modelYearPoint,
-            "Engine Source" to engineSourcePoint,
-            "Transmission" to transmissionPoint,
-            "Color" to colorPoint,
-            "Odometer" to odometerPoint,
-            "Safety" to safetyPoint
-        )
-
-        val sortedPoints = pointsMap.entries
-            .sortedByDescending { it.value }
-
-        for ((key, value) in sortedPoints) {
-
-            editor.putInt(key, value)
+            commit() // apply() yerine commit() kullanılabilir, çünkü bu işlemi hemen uygulamak istiyoruz
         }
+        editor.putInt("brandPoint", brandPoint)
+        editor.putInt("modelPoint", modelPoint)
+        editor.putInt("bodyTypePoint", bodyTypePoint)
+        editor.putInt("modelYearPoint", modelYearPoint)
+        editor.putInt("odometerPoint", odometerPoint)
+        editor.putInt("transmissionPoint", transmissionPoint)
+        editor.putInt("colorPoint", colorPoint)
+        editor.putInt("safetyPoint", safetyPoint)
+        editor.putInt("engineSourcePoint", engineSourcePoint)
+
         editor.putString("sortedPoints", sortedPoints.joinToString("\n") { "${it.key}: ${it.value}" })
+
         editor.clear()
-
-        val firstKey = sortedPoints.firstOrNull()?.key
-
-        val sharedPreferencesx = getSharedPreferences("firstKey", Context.MODE_PRIVATE)
-        val editorx = sharedPreferencesx.edit()
-
-
-        editorx.putString("firstKey", firstKey)
-
-        editorx.apply()
+        Thread.sleep(100)
+        editor.apply()
+        Thread.sleep(100)
     }
 
     private fun showQuestion() {
@@ -112,7 +107,6 @@ class EmployerFirstActivity : AppCompatActivity() {
 
     private fun onOptionSelected(selectedOption: Int, answer: String) {
         if (selectedOption == 1 || selectedOption == 2) {
-
             when (answer) {
                 "Brand" -> brandPoint++
                 "Model" -> modelPoint++
@@ -157,7 +151,7 @@ class EmployerFirstActivity : AppCompatActivity() {
         } else {
             answerCounter++
             saveCounter()
-            updateAndSavePoints()
+            updateAndSavePoints(sortedPoints)
             showToast()
 
             val intent = Intent(this, MainActivity::class.java)
@@ -165,7 +159,10 @@ class EmployerFirstActivity : AppCompatActivity() {
         }
     }
 
-private fun showResult() {
+
+
+
+    private fun showResult() {
     val resultMessage = "Total points: $totalPoints\n" +
             "Brand Points: $brandPoint\n" +
             "Model Points: $modelPoint\n" +
@@ -196,6 +193,7 @@ private fun showToast() {
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putInt("answerCounter", answerCounter)
+        editor.clear()
         editor.apply()
     }
 
