@@ -15,6 +15,18 @@
         android:theme="@style/Theme._100Anniversary"
         tools:targetApi="31">
         <activity
+            android:name=".AboutUsActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".FaqActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".HowItWorksActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
+        <activity
             android:name=".SortActivity"
             android:exported="false" />
         <activity
@@ -34,7 +46,8 @@
             android:exported="false" />
         <activity
             android:name=".StatisticsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".ResultActivity"
             android:exported="false" />
@@ -43,10 +56,12 @@
             android:exported="false" />
         <activity
             android:name=".EmployerFirstActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".EmployeeFirstActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

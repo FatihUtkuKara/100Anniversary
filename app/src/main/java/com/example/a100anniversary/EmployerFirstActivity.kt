@@ -155,6 +155,7 @@ private fun onOptionSelected(selectedOption: Int , answer : String) {
         editorx.putString("firstKey", firstKey)
 
         editorx.apply()
+        showToast()
 
         val intent = Intent(this, MainActivity::class.java)
         this.startActivity(intent)
@@ -177,11 +178,11 @@ private fun showResult() {
     Log.e("Survey Results", resultMessage)
 
 
-    showToast(resultMessage)
+    showToast()
 }
 
-private fun showToast(message: String) {
-    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+private fun showToast() {
+    Toast.makeText(this, "Your answer has been recorded. Thank you for your participation", Toast.LENGTH_SHORT).show()
 }
 
 }

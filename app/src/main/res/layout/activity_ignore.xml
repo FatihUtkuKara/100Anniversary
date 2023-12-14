@@ -139,7 +139,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/faq"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -169,7 +169,7 @@
                     app:tint="@color/white" />
 
                 <ImageView
-                    android:id="@+id/imageView5"
+                    android:id="@+id/aboutUs"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -179,7 +179,7 @@
                     app:tint="@color/white" />
 
                 <ImageView
-                    android:id="@+id/imageView6"
+                    android:id="@+id/howItWorks"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
