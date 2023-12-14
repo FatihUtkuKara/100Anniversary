@@ -45,34 +45,34 @@ class MainActivity : AppCompatActivity() {
 
              val float = findViewById<FloatingActionButton>(R.id.floatAct)
             val appbar = findViewById<BottomAppBar>(R.id.app_bar)
-            val textView7 = findViewById<TextView>(R.id.textView7)
+            //val textView7 = findViewById<TextView>(R.id.textView7)
             val answer1 = findViewById<TextView>(R.id.brand)
             val answer2 = findViewById<TextView>(R.id.model)
             //val answer3 = findViewById<TextView>(R.id.answer3)
             val statistics =findViewById<ImageView>(R.id.statistics)
 
              adminPanel.setOnClickListener{
-                 val intent = Intent(mContext, StatisticsActivity::class.java)
+                 val intent = Intent(mContext, AdminPanelActivity::class.java)
                  mContext.startActivity(intent)
              }
              aboutUs.setOnClickListener{
                  toggleVisibility(answer2, R.anim.slide_right)
                  //toggleVisibility(answer3, R.anim.slide_left)
-                 toggleVisibility(textView7, R.anim.slide_up)
+                 //toggleVisibility(textView7, R.anim.slide_up)
                  toggleVisibility(appbar, R.anim.slide_down)
                  toggleVisibility(float, R.anim.slide_down, AboutUsActivity::class.java, 550,answer1,"employer")
              }
              faq.setOnClickListener{
                  toggleVisibility(answer2, R.anim.slide_right)
                  //toggleVisibility(answer3, R.anim.slide_left)
-                 toggleVisibility(textView7, R.anim.slide_up)
+                 //toggleVisibility(textView7, R.anim.slide_up)
                  toggleVisibility(appbar, R.anim.slide_down)
                  toggleVisibility(float, R.anim.slide_down, FaqActivity::class.java, 550,answer1,"employer")
              }
              howItWorks.setOnClickListener{
                  toggleVisibility(answer2, R.anim.slide_right)
                  //toggleVisibility(answer3, R.anim.slide_left)
-                 toggleVisibility(textView7, R.anim.slide_up)
+                // toggleVisibility(textView7, R.anim.slide_up)
                  toggleVisibility(appbar, R.anim.slide_down)
                  toggleVisibility(float, R.anim.slide_down, HowItWorksActivity::class.java, 550,answer1,"employer")
              }
@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
             answer1.setOnClickListener {
                 toggleVisibility(answer2, R.anim.slide_right)
                 //toggleVisibility(answer3, R.anim.slide_left)
-                toggleVisibility(textView7, R.anim.slide_up)
+                //toggleVisibility(textView7, R.anim.slide_up)
                 toggleVisibility(appbar, R.anim.slide_down)
                 toggleVisibility(float, R.anim.slide_down, AccountActivity::class.java, 550,answer1,"employer")
             }
@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
             answer2.setOnClickListener {
                 toggleVisibility(answer1, R.anim.slide_right)
                 //toggleVisibility(answer3, R.anim.slide_left)
-                toggleVisibility(textView7, R.anim.slide_up)
+                //toggleVisibility(textView7, R.anim.slide_up)
                 toggleVisibility(appbar, R.anim.slide_down)
                 toggleVisibility(float, R.anim.slide_down, AccountActivity::class.java, 550,answer2,"employee")
             }

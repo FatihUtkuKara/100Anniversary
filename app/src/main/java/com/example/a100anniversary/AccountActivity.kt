@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 
@@ -13,6 +14,13 @@ class AccountActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account)
+        val image = findViewById<ImageView>(R.id.imageViewAccount)
+
+        image.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("start","start" )
+            this.startActivity(intent)
+        }
         sortedList = ""
         val saveButton = findViewById<TextView>(R.id.saveButton)
 
