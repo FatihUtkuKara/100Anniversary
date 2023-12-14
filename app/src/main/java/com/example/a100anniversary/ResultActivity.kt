@@ -1,5 +1,6 @@
 package com.example.a100anniversary
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,11 +18,17 @@ class ResultActivity : AppCompatActivity() {
     private lateinit var adapter: ResultRvAdapter
     private lateinit var infoWorker : String
     private lateinit var rv: RecyclerView
+    private lateinit var sortInfo: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
         infoWorker =""
+        val sharedPreferences = getSharedPreferences("firstKey", Context.MODE_PRIVATE)
+        val firstKey = sharedPreferences.getString("firstKey", "")
+        if (firstKey != null) {
+            sortInfo = firstKey
+        }
         rv = findViewById(R.id.rv)
         filterButton= findViewById(R.id.filterButton)
         sortButton = findViewById(R.id.sortButton)
@@ -41,7 +48,7 @@ class ResultActivity : AppCompatActivity() {
             this.startActivity(intent)
         }
 
-        val sortInfo = intent.getStringExtra("sortInfo")
+        sortInfo = intent.getStringExtra("sortInfo").toString()
         val colorList = intent.getStringArrayListExtra("colorList")
         val brandList = intent.getStringArrayListExtra("brandList")
         val modelList = intent.getStringArrayListExtra("modelList")
@@ -553,17 +560,17 @@ class ResultActivity : AppCompatActivity() {
                 val order1 = colorOrder[result1.color] ?: Int.MAX_VALUE
                 val order2 = colorOrder[result2.color] ?: Int.MAX_VALUE
 
-                order1.compareTo(order2)})
+                order1.compareTo(order2)}).reversed()
 
         }
-        if (sortInfo.equals("colorDecrease")){
+        if (sortInfo.equals("colorDecrease") || sortInfo.equals("Color")){
             filteredList = filteredList.sortedWith(Comparator { result1, result2 ->
                 val colorOrder = mapOf("Grey" to 1, "Black" to 2, "Silver" to 3,"White" to 4,"Orange" to 5, "Yellow" to 6, "Red" to 7 ,"Blue" to 8)
 
                 val order1 = colorOrder[result1.color] ?: Int.MAX_VALUE
                 val order2 = colorOrder[result2.color] ?: Int.MAX_VALUE
 
-                order1.compareTo(order2)})
+                order1.compareTo(order2)}).reversed()
         }
         if (sortInfo.equals("brandIncrease")){
             filteredList = filteredList.sortedWith(Comparator { result1, result2 ->
@@ -572,10 +579,10 @@ class ResultActivity : AppCompatActivity() {
                 val order1 = brandOrder[result1.brand] ?: Int.MAX_VALUE
                 val order2 = brandOrder[result2.brand] ?: Int.MAX_VALUE
 
-                order1.compareTo(order2)})
+                order1.compareTo(order2)}).reversed()
 
         }
-        if (sortInfo.equals("brandDecrease")){
+        if (sortInfo.equals("brandDecrease")|| sortInfo.equals("Brand")){
             filteredList = filteredList.sortedWith(Comparator { result1, result2 ->
                 val brandOrder = mapOf(
                     "Porsche" to 1, "Mercedes-Benz" to 2, "Tesla" to 3, "Lexus" to 4,
@@ -590,55 +597,125 @@ class ResultActivity : AppCompatActivity() {
                 val order2 = brandOrder[result2.brand] ?: Int.MAX_VALUE
 
                 order1.compareTo(order2)
-            }).reversed()
+            })
 
         }
-        if (sortInfo.equals("bodyTypeDecrease")){
+        if (sortInfo.equals("bodyTypeDecrease")|| sortInfo.equals("Body Type")){
+            filteredList = filteredList.sortedWith(Comparator { result1, result2 ->
+                val brandOrder = mapOf(
+                    "Limousine" to 1, "Sedan" to 2, "Hatchback" to 3, "Van" to 4,
+                )
+
+                val order1 = brandOrder[result1.brand] ?: Int.MAX_VALUE
+                val order2 = brandOrder[result2.brand] ?: Int.MAX_VALUE
+
+                order1.compareTo(order2)
+            })
+
+
 
         }
         if (sortInfo.equals("bodyTypeIncrease")){
+            filteredList = filteredList.sortedWith(Comparator { result1, result2 ->
+                val brandOrder = mapOf(
+                    "Limousine" to 1, "Sedan" to 2, "Hatchback" to 3, "Van" to 4,
+                )
+
+                val order1 = brandOrder[result1.brand] ?: Int.MAX_VALUE
+                val order2 = brandOrder[result2.brand] ?: Int.MAX_VALUE
+
+                order2.compareTo(order1)
+            })
 
         }
-        if (sortInfo.equals("engineDecrease")){
+        if (sortInfo.equals("engineDecrease")|| sortInfo.equals("Engine Source")){
+            filteredList = filteredList.sortedWith(Comparator { result1, result2 ->
+                val brandOrder = mapOf(
+                    "Electric" to 1, "Hybrid" to 2, "Diesel" to 3, "Petrol" to 4,
+                )
+
+                val order1 = brandOrder[result1.brand] ?: Int.MAX_VALUE
+                val order2 = brandOrder[result2.brand] ?: Int.MAX_VALUE
+
+                order1.compareTo(order2)
+            })
 
         }
         if (sortInfo.equals("engineIncrease")){
+            filteredList = filteredList.sortedWith(Comparator { result1, result2 ->
+                val brandOrder = mapOf(
+                    "Electric" to 1, "Hybrid" to 2, "Diesel" to 3, "Petrol" to 4,
+                )
+
+                val order1 = brandOrder[result1.brand] ?: Int.MAX_VALUE
+                val order2 = brandOrder[result2.brand] ?: Int.MAX_VALUE
+
+                order2.compareTo(order1)
+            })
 
         }
-        if (sortInfo.equals("modelDecrease")){
+        if (sortInfo.equals("modelDecrease")|| sortInfo.equals("Model")){
+            filteredList = filteredList.sortedWith(Comparator { result1, result2 ->
+                val brandOrder = mapOf("EQ" to 1, "Model S" to 2, "Giulia" to 3,"5 Series" to 4,"3 Series" to 5, "Cooper 5 Door" to 6, "A Class" to 7 ,"A3 Sportback" to 8,"E Class" to 9,"Scala" to 10,"Astra" to 11,"ES" to 12,"1 Series" to 13,"Golf" to 14,"Polo" to 15,"308" to 16,"Zoe" to 17,"A4" to 20,"S60" to 19,"Focus" to 20,"i20" to 21)
 
+                val order1 = brandOrder[result1.brand] ?: Int.MAX_VALUE
+                val order2 = brandOrder[result2.brand] ?: Int.MAX_VALUE
+
+                order2.compareTo(order1)}).reversed()
         }
         if (sortInfo.equals("modelIncrease")){
+            filteredList = filteredList.sortedWith(Comparator { result1, result2 ->
+                val brandOrder = mapOf("EQ" to 1, "Model S" to 2, "Giulia" to 3,"5 Series" to 4,"3 Series" to 5, "Cooper 5 Door" to 6, "A Class" to 7 ,"A3 Sportback" to 8,"E Class" to 9,"Scala" to 10,"Astra" to 11,"ES" to 12,"1 Series" to 13,"Golf" to 14,"Polo" to 15,"308" to 16,"Zoe" to 17,"A4" to 20,"S60" to 19,"Focus" to 20,"i20" to 21)
+
+                val order1 = brandOrder[result1.brand] ?: Int.MAX_VALUE
+                val order2 = brandOrder[result2.brand] ?: Int.MAX_VALUE
+
+                order1.compareTo(order2)}).reversed()
 
         }
-        if (sortInfo.equals("odometerDecrease")){
+        if (sortInfo.equals("odometerDecrease") || sortInfo.equals("Odometer")){
+            filteredList = filteredList.sortedByDescending { it.odometer }
 
         }
         if (sortInfo.equals("odometerIncrease")){
+            filteredList = filteredList.sortedByDescending { it.odometer }.reversed()
 
         }
-        if (sortInfo.equals("transmissionDecrease")){
+        if (sortInfo.equals("transmissionDecrease")|| sortInfo.equals("Transmission")){
+            filteredList = filteredList.sortedWith(Comparator { result1, result2 ->
+                val brandOrder = mapOf("Automatic" to 1, "Manuel" to 2)
 
+                val order1 = brandOrder[result1.brand] ?: Int.MAX_VALUE
+                val order2 = brandOrder[result2.brand] ?: Int.MAX_VALUE
+
+                order2.compareTo(order1)}).reversed()
         }
         if (sortInfo.equals("transmissionIncrease")){
 
+
         }
         if (sortInfo.equals("priceDecrease")){
+            filteredList = filteredList.sortedByDescending { it.price }
 
         }
         if (sortInfo.equals("priceIncrease")){
+            filteredList = filteredList.sortedByDescending { it.price }.reversed()
 
         }
-        if (sortInfo.equals("safetyDecrease")){
+        if (sortInfo.equals("safetyDecrease")|| sortInfo.equals("Safety")){
+            filteredList = filteredList.sortedByDescending { it.safety }
 
         }
         if (sortInfo.equals("safetyIncrease")){
+            filteredList = filteredList.sortedByDescending { it.safety }.reversed()
 
         }
-        if (sortInfo.equals("modelYearDecrease")){
+        if (sortInfo.equals("modelYearDecrease")|| sortInfo.equals("Model Year")){
+            filteredList = filteredList.sortedByDescending { it.modelYear }
 
         }
         if (sortInfo.equals("modelYearIncrease")){
+            filteredList = filteredList.sortedByDescending { it.modelYear }.reversed()
 
         }
 

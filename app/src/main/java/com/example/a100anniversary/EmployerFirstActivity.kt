@@ -128,6 +128,9 @@ private fun onOptionSelected(selectedOption: Int , answer : String) {
         }
         .joinToString("\n")
 
+    val firstKey = sortedPoints.firstOrNull()?.key
+
+    Log.e("First Key", firstKey.toString())
     currentIndex2++
     if (currentIndex2 == 8) {
         currentIndex++
@@ -144,6 +147,14 @@ private fun onOptionSelected(selectedOption: Int , answer : String) {
         editor.putString("sortedPoints", updatedPointsString)
 
         editor.apply()
+
+        val sharedPreferencesx = getSharedPreferences("firstKey", Context.MODE_PRIVATE)
+        val editorx = sharedPreferencesx.edit()
+
+
+        editorx.putString("firstKey", firstKey)
+
+        editorx.apply()
 
         val intent = Intent(this, MainActivity::class.java)
         this.startActivity(intent)

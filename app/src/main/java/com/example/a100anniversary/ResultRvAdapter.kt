@@ -68,10 +68,24 @@ class ResultRvAdapter (private val mContext: Context, private val resultList:Lis
         val defaultDrawableResId = R.drawable.btn_background
 
 
-        if(drawableResId != 0x134){
+        if(drawableResId != 0x134 && drawableResId != 0x1f4){
+
+            if (modelName.equals("1 Series")){
+                holder.carImage.setBackgroundResource(R.drawable.a1_series)
+            }
+            else if (modelName.equals("3 Series")){
 
 
-        holder.carImage.setImageResource(if (drawableResId != 0) drawableResId else defaultDrawableResId)
+                holder.carImage.setBackgroundResource(R.drawable.a3_series)
+
+            }
+            else if (modelName.equals("5 Series")){
+
+                holder.carImage.setBackgroundResource(R.drawable.a5_series)
+            }
+            else {
+                holder.carImage.setImageResource(if (drawableResId != 0) drawableResId else defaultDrawableResId)
+            }
         }
         //holder.carImage.setBackgroundResource(R.drawable.bmw)
                 holder.brand.setText("Brand\n"+results.brand)
