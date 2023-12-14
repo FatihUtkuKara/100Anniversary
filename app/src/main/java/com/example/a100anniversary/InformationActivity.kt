@@ -11,6 +11,8 @@ class InformationActivity : AppCompatActivity() {
     private lateinit var cont : TextView
     private lateinit var sorted : TextView
     private lateinit var sortedList: String
+    private lateinit var count : TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,8 +21,9 @@ class InformationActivity : AppCompatActivity() {
 
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val sortedPointsString = sharedPreferences.getString("sortedPoints", "")
-
+        val surveyCompletionCount = sharedPreferences.getInt("answerCounter", 0)
         sorted = findViewById(R.id.sortedList)
+        count = findViewById(R.id.count)
         if (intent.hasExtra("sortedList")) {
             sortedList = intent.getStringExtra("sortedList")!!
         }
@@ -28,8 +31,14 @@ class InformationActivity : AppCompatActivity() {
             infoWorker = intent.getStringExtra("workername")!!
         }
 
+        count.text = surveyCompletionCount.toString()
         cont = findViewById(R.id.con)
-        sorted.setText(sortedPointsString)
+        if (!sortedPointsString.isNullOrBlank()) {
+            sorted.text = sortedPointsString
+        } else {
+
+            sorted.text = "Veri bulunamadı."
+        }
 
         cont.setOnClickListener{
                 val intent = Intent(this, ResultActivity::class.java)

@@ -81,7 +81,7 @@
                     android:layout_width="120dp"
                     android:layout_height="100dp"
                     android:layout_marginStart="50dp"
-                    android:text=" Model Year\n(Decreasing)"
+                    android:text=" Model Year\n(Most Preferred)"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
