@@ -34,7 +34,6 @@ class EmployerFirstActivity : AppCompatActivity() {
     private var colorPoint = 0
     private var odometerPoint = 0
     private var safetyPoint = 0
-
     private var totalPoints = 0
     private var currentIndex = 0
     private var currentIndex2 = 0
@@ -47,7 +46,7 @@ class EmployerFirstActivity : AppCompatActivity() {
         button1 = findViewById(R.id.item1)
         button2 = findViewById(R.id.item2)
 
-        // SharedPreferences kullanımını buraya ekleyin
+
         loadPreviousPoints()
         loadCounter()
         showQuestion()
@@ -74,11 +73,12 @@ class EmployerFirstActivity : AppCompatActivity() {
     private fun updateAndSavePoints(sortedPoints: List<Map.Entry<String, Int>>) {
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
-        sharedPreferences.edit().apply {
+        //editor.clear()
 
-            commit() // apply() yerine commit() kullanılabilir, çünkü bu işlemi hemen uygulamak istiyoruz
-        }
-        editor.putInt("brandPoint", brandPoint)
+        sharedPreferences.edit().clear().commit()
+
+
+        /*editor.putInt("brandPoint", brandPoint)
         editor.putInt("modelPoint", modelPoint)
         editor.putInt("bodyTypePoint", bodyTypePoint)
         editor.putInt("modelYearPoint", modelYearPoint)
@@ -86,14 +86,12 @@ class EmployerFirstActivity : AppCompatActivity() {
         editor.putInt("transmissionPoint", transmissionPoint)
         editor.putInt("colorPoint", colorPoint)
         editor.putInt("safetyPoint", safetyPoint)
-        editor.putInt("engineSourcePoint", engineSourcePoint)
+        editor.putInt("engineSourcePoint", engineSourcePoint) */
 
         editor.putString("sortedPoints", sortedPoints.joinToString("\n") { "${it.key}: ${it.value}" })
-
-        editor.clear()
-        Thread.sleep(100)
+        // editor.clear()
+        //Thread.sleep(500)
         editor.apply()
-        Thread.sleep(100)
     }
 
     private fun showQuestion() {
@@ -131,7 +129,8 @@ class EmployerFirstActivity : AppCompatActivity() {
             "Odometer" to odometerPoint,
             "Safety" to safetyPoint
         )
-
+        //val mutablePointsMap = pointsMap.toMutableMap()
+        //mutablePointsMap.replaceAll { _, _ -> 0 }
         val sortedPoints = pointsMap.entries
             .sortedByDescending { it.value }
 
@@ -192,8 +191,13 @@ private fun showToast() {
     private fun saveCounter() {
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
+        /*sharedPreferences.edit().apply {
+            clear()
+            commit()
+        } */
         editor.putInt("answerCounter", answerCounter)
-        editor.clear()
+
+        //editor.clear()
         editor.apply()
     }
 
