@@ -75,10 +75,10 @@ class EmployerFirstActivity : AppCompatActivity() {
         val editor = sharedPreferences.edit()
         //editor.clear()
 
-        sharedPreferences.edit().clear().commit()
+        //SharedPreferences.edit().clear().commit()
 
 
-        /*editor.putInt("brandPoint", brandPoint)
+        editor.putInt("brandPoint", brandPoint)
         editor.putInt("modelPoint", modelPoint)
         editor.putInt("bodyTypePoint", bodyTypePoint)
         editor.putInt("modelYearPoint", modelYearPoint)
@@ -86,7 +86,7 @@ class EmployerFirstActivity : AppCompatActivity() {
         editor.putInt("transmissionPoint", transmissionPoint)
         editor.putInt("colorPoint", colorPoint)
         editor.putInt("safetyPoint", safetyPoint)
-        editor.putInt("engineSourcePoint", engineSourcePoint) */
+        editor.putInt("engineSourcePoint", engineSourcePoint)
 
         editor.putString("sortedPoints", sortedPoints.joinToString("\n") { "${it.key}: ${it.value}" })
         // editor.clear()
@@ -129,15 +129,12 @@ class EmployerFirstActivity : AppCompatActivity() {
             "Odometer" to odometerPoint,
             "Safety" to safetyPoint
         )
-        //val mutablePointsMap = pointsMap.toMutableMap()
-        //mutablePointsMap.replaceAll { _, _ -> 0 }
         val sortedPoints = pointsMap.entries
             .sortedByDescending { it.value }
 
-        Log.e("Sıralanmış Puanlar:", sortedPoints.joinToString("\n") { "${it.key}: ${it.value}" })
-
         val firstKey = sortedPoints.firstOrNull()?.key
 
+        Log.e("Points:", sortedPoints.joinToString("\n") { "${it.key}: ${it.value}" })
         Log.e("First Key", firstKey.toString())
         currentIndex2++
         if (currentIndex2 == 8) {

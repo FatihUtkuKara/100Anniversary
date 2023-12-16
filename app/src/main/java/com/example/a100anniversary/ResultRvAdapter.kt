@@ -41,16 +41,7 @@ class ResultRvAdapter (private val mContext: Context, private val resultList:Lis
 
             //cardImage=view.findViewById(R.id.imageView)
         }
-
-
-
-
-
-
-
-
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewDesignObjectHolder {
         val design = LayoutInflater.from(mContext).inflate(R.layout.cardview,parent,false)
         return  CardViewDesignObjectHolder(design)
