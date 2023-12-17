@@ -37,7 +37,7 @@ class InformationActivity : AppCompatActivity() {
             sorted.text = sortedPointsString
         } else {
 
-            sorted.text = "Veri bulunamadı."
+            sorted.text = "No Data."
         }
 
         cont.setOnClickListener{

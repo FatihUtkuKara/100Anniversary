@@ -45,11 +45,11 @@ class AccountActivity : AppCompatActivity() {
             } else {
                 // Continue to the next activity based on the user type
                 if (info == "employer") {
-                    val intent = Intent(this, EmployerFirstActivity::class.java)
+                    val intent = Intent(this, EmployeeActivity::class.java)
 
                     startActivity(intent)
                 } else if (info == "employee") {
-                    val intent = Intent(this, EmployeeFirstActivity::class.java)
+                    val intent = Intent(this, EmployerActivity::class.java)
                     intent.putExtra("sortedList",sortedList)
                     startActivity(intent)
                 }

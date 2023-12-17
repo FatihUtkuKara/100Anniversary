@@ -41,7 +41,7 @@ class IgnoreActivity : AppCompatActivity() {
             toggleVisibility(answer3, R.anim.slide_left)
             toggleVisibility(textView7, R.anim.slide_up)
             toggleVisibility(appbar, R.anim.slide_down)
-            toggleVisibility(float, R.anim.slide_down, EmployerFirstActivity::class.java, 550,answer1)
+            toggleVisibility(float, R.anim.slide_down, EmployeeActivity::class.java, 550,answer1)
         }
 
         answer2.setOnClickListener {
@@ -49,7 +49,7 @@ class IgnoreActivity : AppCompatActivity() {
             toggleVisibility(answer3, R.anim.slide_left)
             toggleVisibility(textView7, R.anim.slide_up)
             toggleVisibility(appbar, R.anim.slide_down)
-            toggleVisibility(float, R.anim.slide_down, EmployeeFirstActivity::class.java, 550,answer2)
+            toggleVisibility(float, R.anim.slide_down, EmployerActivity::class.java, 550,answer2)
         }
 
         answer3.setOnClickListener {
@@ -57,7 +57,7 @@ class IgnoreActivity : AppCompatActivity() {
             toggleVisibility(answer2, R.anim.slide_left)
             toggleVisibility(textView7, R.anim.slide_up)
             toggleVisibility(appbar, R.anim.slide_down)
-            toggleVisibility(float, R.anim.slide_down, EmployerFirstActivity::class.java, 550,answer3)
+            toggleVisibility(float, R.anim.slide_down, EmployeeActivity::class.java, 550,answer3)
         }
 
         statistics.setOnClickListener {

@@ -2,14 +2,10 @@ package com.example.a100anniversary
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
-class EmployeeFirstActivity : AppCompatActivity() {
+class EmployerActivity : AppCompatActivity() {
     private lateinit var blueButton:TextView
     private lateinit var whiteButton: TextView
     private lateinit var executiveButton: TextView

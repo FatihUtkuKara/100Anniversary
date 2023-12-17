@@ -7,9 +7,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
-import kotlin.concurrent.thread
 
-class EmployerFirstActivity : AppCompatActivity() {
+class EmployeeActivity : AppCompatActivity() {
     private lateinit var button1: TextView
     private lateinit var button2: TextView
     private var answerCounter = 0

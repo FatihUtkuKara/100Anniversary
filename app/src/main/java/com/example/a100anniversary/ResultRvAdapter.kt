@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import java.util.Locale
 
 class ResultRvAdapter (private val mContext: Context, private val resultList:List<Results>, private var workerInfo : String): RecyclerView.Adapter<ResultRvAdapter.CardViewDesignObjectHolder>(){
     inner class CardViewDesignObjectHolder(view: View): RecyclerView.ViewHolder(view) {
@@ -54,7 +55,7 @@ class ResultRvAdapter (private val mContext: Context, private val resultList:Lis
     override fun onBindViewHolder(holder: CardViewDesignObjectHolder, position: Int) {
         val results = resultList[position]
 
-        val modelName = results.model.toLowerCase()
+        val modelName = results.model.lowercase(Locale.getDefault())
         val drawableResId = mContext.resources.getIdentifier(modelName, "drawable", mContext.packageName)
         val defaultDrawableResId = R.drawable.btn_background
 
@@ -79,16 +80,16 @@ class ResultRvAdapter (private val mContext: Context, private val resultList:Lis
             }
         }
         //holder.carImage.setBackgroundResource(R.drawable.bmw)
-                holder.brand.setText("Brand\n"+results.brand)
-                holder.modelYear.setText("Model Year\n"+results.modelYear.toString())
-                holder.colorr.setText("Color\n"+results.color)
-                holder.price.setText("Price\n"+results.price.toString())
-                holder.transmission.setText("Transmission\n"+results.transmission)
-                holder.modell.setText("Model\n"+results.model)
-                holder.engineSrc.setText("Engine Source\n"+results.engineSrc)
-                holder.safety.setText("Safety\n"+results.safety.toString())
-                holder.bodyType.setText("Body Type\n"+results.bodyType)
-                holder.odometer.setText("Odometer\n"+results.odometer.toString())
+        holder.brand.text = "Brand\n"+results.brand
+        holder.modelYear.text = "Model Year\n"+results.modelYear.toString()
+        holder.colorr.text = "Color\n"+results.color
+        holder.price.text = "Price\n"+results.price.toString()
+        holder.transmission.text = "Transmission\n"+results.transmission
+        holder.modell.text = "Model\n"+results.model
+        holder.engineSrc.text = "Engine Source\n"+results.engineSrc
+        holder.safety.text = "Safety\n"+results.safety.toString()
+        holder.bodyType.text = "Body Type\n"+results.bodyType
+        holder.odometer.text = "Odometer\n"+results.odometer.toString()
 
 
 
