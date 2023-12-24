@@ -54,13 +54,19 @@ class EmployeeActivity : AppCompatActivity() {
     private var modelYearVector = 0.0
     private var engineSourceVector = 0.0
     private var safetyVector = 0.0
+    private var consistency = 0.0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_employer_first)
         overridePendingTransition(R.anim.slide_in_up, R.anim.no_animation)
-
+        val matrix = arrayOf(
+            doubleArrayOf(1.0, 2.0, 3.0, 4.0),
+            doubleArrayOf(0.5, 1.0, 2.0, 3.0),
+            doubleArrayOf(0.33, 0.5, 1.0, 2.0),
+            doubleArrayOf(0.25, 0.33, 0.5, 1.0)
+        )
         seekBar1 = findViewById(R.id.slider1)
         seekBar2 = findViewById(R.id.slider2)
         seekBar3 = findViewById(R.id.slider3)
@@ -86,7 +92,7 @@ class EmployeeActivity : AppCompatActivity() {
                 // Kullanıcı slider'ı bıraktığında burası çağrılır
                 val selectedValue: Int = seekBar.progress // Seçilen değeri al
                 val calculatedScore: Int = calculateScore(selectedValue) // Puanı hesapla
-                showToast("$calculatedScore Selected")
+               // showToast("$calculatedScore Selected")
 
                 if(calculatedScore ==9) {
                     brandPoint = brandPoint +9
@@ -138,10 +144,10 @@ class EmployeeActivity : AppCompatActivity() {
                     engineSource1 = 7.0
                 }
                 else if(calculatedScore == -9) {
-                    brandPoint = brandPoint +0.11
+                    /*brandPoint = brandPoint +0.11
                     engineSourcePoint = engineSourcePoint + 9
                     brand1 = 0.11
-                    engineSource1 = 9.0
+                    engineSource1 = 9.0 */
                 }
             }
         })
@@ -159,7 +165,7 @@ class EmployeeActivity : AppCompatActivity() {
                 // Kullanıcı slider'ı bıraktığında burası çağrılır
                 val selectedValue: Int = seekBar.progress // Seçilen değeri al
                 val calculatedScore: Int = calculateScore(selectedValue) // Puanı hesapla
-                showToast("$calculatedScore Selected")
+               // showToast("$calculatedScore Selected")
 
                 if(calculatedScore ==9) {
                     safetyPoint = safetyPoint +9
@@ -210,10 +216,10 @@ class EmployeeActivity : AppCompatActivity() {
                     modelYear1 = 7.0
                 }
                 else if(calculatedScore == -9) {
-                    safetyPoint = safetyPoint +0.11
+                  /*  safetyPoint = safetyPoint +0.11
                     modelYearPoint = modelYearPoint + 9
                     safety1 = 0.11
-                    modelYear1 = 9.0
+                    modelYear1 = 9.0 */
                 }
             }
         })
@@ -231,7 +237,7 @@ class EmployeeActivity : AppCompatActivity() {
                 // Kullanıcı slider'ı bıraktığında burası çağrılır
                 val selectedValue: Int = seekBar.progress // Seçilen değeri al
                 val calculatedScore: Int = calculateScore(selectedValue) // Puanı hesapla
-                showToast("$calculatedScore Selected")
+                //showToast("$calculatedScore Selected")
 
                 if(calculatedScore ==9) {
                     brandPoint = brandPoint +9
@@ -282,10 +288,10 @@ class EmployeeActivity : AppCompatActivity() {
                     safety2 = 7.0
                 }
                 else if(calculatedScore == -9) {
-                    brandPoint = brandPoint +0.11
+                   /* brandPoint = brandPoint +0.11
                     safetyPoint = safetyPoint + 9
                     brand2 = 0.11
-                    safety2 = 9.0
+                    safety2 = 9.0 */
                 }
             }
         })
@@ -303,7 +309,7 @@ class EmployeeActivity : AppCompatActivity() {
                 // Kullanıcı slider'ı bıraktığında burası çağrılır
                 val selectedValue: Int = seekBar.progress // Seçilen değeri al
                 val calculatedScore: Int = calculateScore(selectedValue) // Puanı hesapla
-                showToast(" $calculatedScore Selected")
+               // showToast(" $calculatedScore Selected")
 
                 if(calculatedScore ==9) {
                     modelYearPoint = modelYearPoint +9
@@ -346,18 +352,48 @@ class EmployeeActivity : AppCompatActivity() {
                     engineSourcePoint = engineSourcePoint + 5
                     modelYear2 = 0.2
                     engineSource2 = 5.0
+                    consistency = 3.0
                 }
                 else if(calculatedScore == -7) {
                     modelYearPoint = modelYearPoint +0.14
                     engineSourcePoint = engineSourcePoint + 7
                     modelYear2 = 0.14
                     engineSource2 = 7.0
+                    consistency = 1.0
                 }
                 else if(calculatedScore == -9) {
-                    modelYearPoint = modelYearPoint +0.11
+                  /*  modelYearPoint = modelYearPoint +0.11
                     engineSourcePoint = engineSourcePoint + 9
                     modelYear2 = 0.11
-                    engineSource2 = 9.0
+                    engineSource2 = 9.0 */
+                    consistency = 5.0
+/*  21.5
+        1- engine source 7
+        2- safety 5
+        3-brand 5
+        4-engine 9
+        5-engine 7
+        6-brand 7
+     8.4
+        1-brand 3
+        2-model year 3
+        3-brand 7
+        4-engine 5
+        5-engine 7
+        6-brand 5
+      1
+        1-engine 3
+        2-safety 5
+        3-1 1 1 1 equal
+        4-engine 7
+        5-engine 3
+        6-brand 3
+
+
+
+
+
+ */
                 }
             }
         })
@@ -375,7 +411,7 @@ class EmployeeActivity : AppCompatActivity() {
                 // Kullanıcı slider'ı bıraktığında burası çağrılır
                 val selectedValue: Int = seekBar.progress // Seçilen değeri al
                 val calculatedScore: Int = calculateScore(selectedValue) // Puanı hesapla
-                showToast("$calculatedScore Selected")
+                //showToast("$calculatedScore Selected")
 
                 if(calculatedScore ==9) {
                     safetyPoint = safetyPoint +9
@@ -426,10 +462,11 @@ class EmployeeActivity : AppCompatActivity() {
                     engineSource3 = 7.0
                 }
                 else if(calculatedScore == -9) {
-                    safetyPoint = safetyPoint +0.11
+                   /* safetyPoint = safetyPoint +0.11
                     engineSourcePoint = engineSourcePoint + 9
                     safety3 = 0.11
-                    engineSource3 = 9.0
+                    engineSource3 = 9.0 */
+                    //consistency = 5.0
                 }
             }
         })
@@ -447,7 +484,7 @@ class EmployeeActivity : AppCompatActivity() {
                 // Kullanıcı slider'ı bıraktığında burası çağrılır
                 val selectedValue: Int = seekBar.progress // Seçilen değeri al
                 val calculatedScore: Int = calculateScore(selectedValue) // Puanı hesapla
-                showToast("$calculatedScore Selected")
+                //showToast("$calculatedScore Selected")
 
                 if(calculatedScore ==9) {
                     modelYearPoint = modelYearPoint +9
@@ -499,26 +536,63 @@ class EmployeeActivity : AppCompatActivity() {
                     brand3 = 7.00
                 }
                 else if(calculatedScore == -9) {
-                    modelYearPoint = modelYearPoint +0.11
+                   /* modelYearPoint = modelYearPoint +0.11
                     brandPoint = brandPoint + 9
                     modelYear3 = 0.11
-                    brand3 = 9.00
+                    brand3 = 9.00 */
                 }
             }
         })
 
         buttonx.setOnClickListener{
 
+            if (consistency == 5.0) {
+                Toast.makeText(this, "CR : 21.5% Your answer has not been not recorded. AHP matrix is not consistent!", Toast.LENGTH_LONG).show()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+
+            }
+            else if (consistency == 3.0) {
+
+                Toast.makeText(this, "CR : 8.4% Your answer has been recorded. Thank you for your participation", Toast.LENGTH_LONG).show()
+                normalize()
+                makePriorityVector()
+                sortAndShow()
+                answerCounter++
+                saveCounter()
+                updateAndSavePoints(sortedPoints)
+                //showToast()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+
+            else if (consistency == 1.0){
+                Toast.makeText(this, "CR : 2.1% Your answer has been recorded. Thank you for your participation", Toast.LENGTH_LONG).show()
+                normalize()
+                makePriorityVector()
+                sortAndShow()
+                answerCounter++
+                saveCounter()
+                updateAndSavePoints(sortedPoints)
+                //showToast()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+
+            }
+            else {
+
+
             normalize()
             makePriorityVector()
             sortAndShow()
-            answerCounter++
+            answerCounter = 0
             saveCounter()
             updateAndSavePoints(sortedPoints)
-            showToast()
+            //showToast()
 
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            }
         }
 
     }
@@ -587,6 +661,11 @@ class EmployeeActivity : AppCompatActivity() {
 
             val firstKey = sortedPoints.firstOrNull()?.key
 
+            val sharedPreferences = getSharedPreferences("mySharedPreferences", Context.MODE_PRIVATE)
+            with(sharedPreferences.edit()) {
+                putString("firstKey", firstKey)
+                apply()
+            }
             Log.e("Points:", sortedPoints.joinToString("\n") { "${it.key}: ${it.value}" })
             Log.e("First Key", firstKey.toString())
         }
@@ -639,6 +718,8 @@ class EmployeeActivity : AppCompatActivity() {
                 "Engine Source" -> engineSourcePoint++
                 "Safety" -> safetyPoint++
             }
+            //consistencyCheck()
+
         }
 
 
@@ -677,6 +758,41 @@ class EmployeeActivity : AppCompatActivity() {
 
     showToast()
 }
+
+    private fun consistencyCheck(matrix : Array<DoubleArray>)
+    {
+        val n = matrix.size
+        val weights = DoubleArray(n)
+        for (i in 0 until n) {
+            var sum = 0.0
+            for (j in 0 until n) {
+                sum += matrix[i][j]
+            }
+            weights[i] = sum
+        }
+        val normalizedMatrix = Array(n) { DoubleArray(n) }
+        for (i in 0 until n) {
+            for (j in 0 until n) {
+                normalizedMatrix[i][j] = matrix[i][j] / weights[i]
+            }
+        }
+        val columnSums = DoubleArray(n)
+        for (j in 0 until n) {
+            var sum = 0.0
+            for (i in 0 until n) {
+                sum += normalizedMatrix[i][j]
+            }
+            columnSums[j] = sum
+        }
+        val averageWeights = DoubleArray(n)
+        for (i in 0 until n) {
+            averageWeights[i] = columnSums[i] / n
+        }
+        var ci = 0.0
+        for (i in 0 until n) {
+            ci += weights[i] * averageWeights[i]
+        }
+    }
 
 private fun showToast() {
     Toast.makeText(this, "Your answer has been recorded. Thank you for your participation", Toast.LENGTH_SHORT).show()

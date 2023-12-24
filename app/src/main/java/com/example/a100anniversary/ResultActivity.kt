@@ -24,7 +24,7 @@ class ResultActivity : AppCompatActivity() {
         setContentView(R.layout.activity_result)
 
         infoWorker =""
-        val sharedPreferences = getSharedPreferences("firstKey", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("mySharedPreferences", Context.MODE_PRIVATE)
         var firstKey = sharedPreferences.getString("firstKey", "")
         if (firstKey != null) {
             sortInfo = firstKey
